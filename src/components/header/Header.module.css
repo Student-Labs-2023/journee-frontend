@@ -16,8 +16,15 @@
 .logo {
   display: block;
 
-  margin: auto;
+  margin-left: 18px;
+  margin-right: auto;
   margin-top: 15px;
+}
+
+@media (max-width: 1500px) {
+  .logo {
+    margin-left: -44px;
+  }
 }
 
 /* Поиск */

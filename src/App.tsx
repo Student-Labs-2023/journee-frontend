@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { MainPage } from './pages/MainPage';
+import { PopularPage } from './pages/PopularPage';
+import { FreshPage } from './pages/FreshPage';
+import { RoutesPage } from './pages/RoutesPage';
 import { MainLayout } from './layouts/MainLayout';
 
 function App() {
@@ -8,7 +10,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<MainPage />} />
+          <Route index element={<PopularPage />} />
+          <Route path="/fresh" element={<FreshPage />} />
+          <Route path="/routes" element={<RoutesPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
