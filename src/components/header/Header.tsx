@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 import '../../bulma/bulma.css';
 import styles from './Header.module.css';
@@ -9,9 +11,19 @@ import buttonIcon from '../../img/fi-rs-plus-small.svg';
 import notificationIcon from '../../img/notificationicons_header.svg';
 import userIcon from '../../img/Usericons_header.svg';
 
+import { Dropdown } from './dropdown/Dropdown';
+
 //Шапка
 
 export function Header() {
+  /* Состояние dropdown меню*/
+  const [dropdownState, setDropdown] = useState<boolean>(false);
+
+  /* Функция, которая передана в Dropdown.tsx? для изменения состояния dropdown меню */
+  const setDropdownState = (): void => {
+    setDropdown(!dropdownState);
+  };
+
   return (
     /* Шапка */
     <div className="columns">
@@ -47,7 +59,7 @@ export function Header() {
               <div className="column is-one-third">
                 <button
                   className={styles.button}
-                  onClick={() => console.log('Создать маршрут')}
+                  onClick={() => setDropdown(!dropdownState)}
                 >
                   <img
                     className={styles.buttonIcon}
@@ -56,6 +68,16 @@ export function Header() {
                   />
                   <p className={styles.buttonText}>Создать</p>
                 </button>
+                {/* Dropdown меню */}
+
+                <CSSTransition
+                  in={dropdownState}
+                  classNames="alert"
+                  timeout={300}
+                  unmountOnExit
+                >
+                  <Dropdown setDropdown={setDropdownState} />
+                </CSSTransition>
               </div>
             </div>
           </div>

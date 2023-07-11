@@ -7,3 +7,20 @@
 
   font-family: 'Inter', sans-serif;
 }
+
+/* Анимация dropdown из модуля Header при помощи библиотеки react-transition-group*/
+
+.alert-enter {
+  opacity: 0;
+}
+.alert-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.alert-exit {
+  opacity: 1;
+}
+.alert-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
