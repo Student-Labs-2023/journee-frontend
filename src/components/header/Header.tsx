@@ -12,6 +12,7 @@ import notificationIcon from '../../img/notificationicons_header.svg';
 import userIcon from '../../img/Usericons_header.svg';
 
 import { Dropdown } from './dropdown/Dropdown';
+import { Modal } from './modal/Modal';
 
 //Шапка
 
@@ -19,9 +20,17 @@ export function Header() {
   /* Состояние dropdown меню*/
   const [dropdownState, setDropdown] = useState<boolean>(false);
 
-  /* Функция, которая передана в Dropdown.tsx? для изменения состояния dropdown меню */
+  /* Состояние модального окна*/
+  const [modal, setModal] = useState<boolean>(false);
+
+  /* Функция, которая передана в Dropdown.tsx для изменения состояния dropdown меню */
   const setDropdownState = (): void => {
     setDropdown(!dropdownState);
+  };
+
+  /* Функция, которая передана в SignIn.tsx для изменения состояния модального окна */
+  const setModalState = (): void => {
+    setModal(!modal);
   };
 
   return (
@@ -100,7 +109,7 @@ export function Header() {
               <div className="column is-three-fifths">
                 <button
                   className={styles.userAuthorization}
-                  onClick={() => console.log('Войти')}
+                  onClick={() => setModal(!modal)}
                 >
                   <img
                     className={styles.userAuthorizationImage}
@@ -114,6 +123,12 @@ export function Header() {
           </div>
         </div>
       </div>
+
+      {/* Модальное окно входа & регистрации */}
+
+      <CSSTransition in={modal} classNames="modal" timeout={300} unmountOnExit>
+        <Modal setModalState={setModalState} />
+      </CSSTransition>
     </div>
   );
 }
