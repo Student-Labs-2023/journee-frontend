@@ -4,16 +4,16 @@ import { useEffect } from "react"
 export default function Sync() {
     const {isLoading, isAuthenticated, user} = useAuth0()
     useEffect(() => {
-        if (isLoading || !isAuthenticated || user === undefined) return;
+        if (localStorage.getItem("token") !== null || isLoading || !isAuthenticated || user === undefined) return;
         
-        fetch("http://localhost:8080/auth", {
-            method:"POST",
+        fetch('http://localhost:8080/auth', {
+            method:'POST',
             "headers":{
-                "Content-Type":"application/json",
+                'Content-Type': 'application/json',
             },
-            "body":JSON.stringify(user)
+            body: JSON.stringify(user)
         }).then(res => res.text()).then(res => {
-            console.log(res)
+            localStorage.setItem('token', res)// setting response(token) in localstorage
         }).catch(err => console.error(err))
     }, [isLoading, isAuthenticated, user])
     return (<></>)
