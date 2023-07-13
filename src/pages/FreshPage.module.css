@@ -1,21 +1,7 @@
 /* Главный блок (накосячил с сеткой) */
 
 .main {
-  padding: 20px 158px 0px 190px;
-}
-
-/* Блок навигации (накосячил с сеткой) */
-
-@media (max-width: 1500px) {
-  .main {
-    padding: 20px 112px 0px 130px;
-  }
-}
-
-@media (max-width: 1500px) {
-  .nav {
-    margin-right: 40px;
-  }
+  padding-top: 20px;
 }
 
 /* Медиа заголовок */
@@ -239,10 +225,4 @@
 
 .other:hover {
   color: #141414;
-}
-
-/* Карточка */
-
-.cards {
-  padding: 12px 5px 0px;
 }
