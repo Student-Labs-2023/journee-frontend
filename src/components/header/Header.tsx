@@ -13,7 +13,6 @@ import userIcon from '../../img/Usericons_header.svg';
 
 import { Dropdown } from './dropdown/Dropdown';
 import { Modal } from './modal/Modal';
-import AuthProvider from '../auth/AuthProvider';
 import AuthButton from '../auth/buttons/AuthButton';
 
 //Шапка
@@ -109,19 +108,17 @@ export function Header() {
               {/* Блок авторизации */}
 
               <div className="column is-three-fifths">
-                <AuthProvider>
-                  <AuthButton
-                    className={styles.userAuthorization}
-                    //onClick={() => setModal(!modal)} Жалко😢, но тут будет auth0
-                  >
-                    <img
-                      className={styles.userAuthorizationImage}
-                      src={userIcon}
-                      alt="sign in"
-                    />
-                    <p className={styles.userAuthorizationText}>Войти</p>
-                  </AuthButton>
-                </AuthProvider>
+                <AuthButton
+                  className={styles.userAuthorization}
+                  //onClick={() => setModal(!modal)} Жалко😢, но тут будет auth0
+                >
+                  <img
+                    className={styles.userAuthorizationImage}
+                    src={userIcon}
+                    alt="sign in"
+                  />
+                  <p className={styles.userAuthorizationText}>Войти</p>
+                </AuthButton>
               </div>
             </div>
           </div>

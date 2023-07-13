@@ -1,11 +1,23 @@
-import { useAuth0 } from "@auth0/auth0-react"
+import Auth0Lock from "auth0-lock"
 
 export default function AuthButton(props:React.PropsWithChildren<any>) {
-    const { loginWithPopup } = useAuth0()
     function onClick(props:any) {
         return (...args:any) => {
             if ("onClick" in props) {props.onClick(...args)}
-            loginWithPopup()
+            const lock = new Auth0Lock("BFpoQ0SsiPTgGRlfMDzoUrNjc7nPqqWx", "dev-vrsblas6ves78ir5.us.auth0.com", {
+                "theme":{
+                    "primaryColor":"#FF933CB2",
+                    "logo":"/logo.svg",
+                    "hideMainScreenTitle":true,
+                },
+                "language":"ru",
+                "autoclose":true
+            })
+            lock.on("authenticated", (e) => {
+                // console.log(e)
+                lock.getUserInfo(e.accessToken, console.log)
+            })
+            lock.show()
         }
     }
     return (
