@@ -37,96 +37,92 @@ export function Header() {
 
   return (
     /* Шапка */
-    <div className="columns">
-      <div className={`column ${styles.header}`}>
-        <div className="columns is-5">
-          {/* Лого */}
+    <div className={`columns ${styles.header}`}>
+      <div className="column is-1"></div>
+      {/* Лого */}
 
-          <div className="column is-one-fifth">
-            <Link to="/">
-              <img className={styles.logo} src={logoIcon} alt="logo"></img>
-            </Link>
-          </div>
-          {/* Блок поиска и кнопки создания */}
+      <div className="column is-2">
+        <Link to="/">
+          <img className={styles.logo} src={logoIcon} alt="logo"></img>
+        </Link>
+      </div>
 
-          <div className="column">
-            <div className="columns">
-              {/* Блок поиска */}
+      <div className={`column is-6 ${styles.centerBlock}`}>
+        {/* Блок поиска */}
 
-              <div className="column">
-                <form className={styles.search}>
-                  <div className={styles.searchIcon}>
-                    <img src={searchIcon} alt="search" />
-                  </div>
-                  <input
-                    className={styles.searchInput}
-                    type="text"
-                    placeholder="Поиск"
-                  />
-                </form>
-              </div>
-              {/* Блок создания маршрута */}
-
-              <div className="column is-one-third">
-                <button
-                  className={styles.button}
-                  onClick={() => setDropdown(!dropdownState)}
-                >
-                  <img
-                    className={styles.buttonIcon}
-                    src={buttonIcon}
-                    alt="create a route"
-                  />
-                  <p className={styles.buttonText}>Создать</p>
-                </button>
-                {/* Dropdown меню */}
-
-                <CSSTransition
-                  in={dropdownState}
-                  classNames="alert"
-                  timeout={300}
-                  unmountOnExit
-                >
-                  <Dropdown setDropdown={setDropdownState} />
-                </CSSTransition>
-              </div>
+        <div className={styles.searchBlock}>
+          <form className={styles.search}>
+            <div className={styles.searchIcon}>
+              <img src={searchIcon} alt="search" />
             </div>
+            <input
+              className={styles.searchInput}
+              type="text"
+              placeholder="Поиск"
+            />
+          </form>
+        </div>
+        {/* Блок создания маршрута */}
+
+        <div className={styles.buttonBlock}>
+          <button
+            className={styles.button}
+            onClick={() => setDropdown(!dropdownState)}
+          >
+            <img
+              className={styles.buttonIcon}
+              src={buttonIcon}
+              alt="create a route"
+            />
+            <p className={styles.buttonText}>Создать</p>
+          </button>
+          {/* Dropdown меню */}
+
+          <CSSTransition
+            in={dropdownState}
+            classNames="alert"
+            timeout={300}
+            unmountOnExit
+          >
+            <Dropdown setDropdown={setDropdownState} />
+          </CSSTransition>
+        </div>
+      </div>
+
+      {/* Блок пользовтеля */}
+
+      <div className="column is-2">
+        <div className={`columns ${styles.user}`}>
+          {/* Блок уведомлений */}
+
+          <div className="column is-6">
+            <button
+              className={styles.userNotification}
+              onClick={() => console.log('Открыть уведомления')}
+            >
+              <img src={notificationIcon} alt="notifications" />
+            </button>
           </div>
-          {/* Блок пользовтеля */}
+          {/* Блок авторизации */}
 
-          <div className="column is-one-fifth">
-            <div className={`columns ${styles.user}`}>
-              {/* Блок уведомлений */}
-
-              <div className="column">
-                <button
-                  className={styles.userNotification}
-                  onClick={() => console.log('Открыть уведомления')}
-                >
-                  <img src={notificationIcon} alt="notifications" />
-                </button>
-              </div>
-              {/* Блок авторизации */}
-
-              <div className="column is-three-fifths">
-                <AuthProvider>
-                  <AuthButton
-                    className={styles.userAuthorization}
-                    //onClick={() => setModal(!modal)} Жалко😢, но тут будет auth0
-                  >
-                    <img
-                      className={styles.userAuthorizationImage}
-                      src={userIcon}
-                      alt="sign in"
-                    />
-                    <p className={styles.userAuthorizationText}>Войти</p>
-                  </AuthButton>
-                </AuthProvider>
-              </div>
-            </div>
+          <div className="column is-6">
+            <AuthProvider>
+              <AuthButton
+                className={styles.userAuthorization}
+                //onClick={() => setModal(!modal)} Жалко😢, но тут будет auth0
+              >
+                <img
+                  className={styles.userAuthorizationImage}
+                  src={userIcon}
+                  alt="sign in"
+                />
+                <p className={styles.userAuthorizationText}>Войти</p>
+              </AuthButton>
+            </AuthProvider>
           </div>
         </div>
       </div>
+      <div className="column is-1"></div>
 
       {/* Модальное окно входа & регистрации */}
 

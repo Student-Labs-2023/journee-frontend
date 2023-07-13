@@ -10,9 +10,10 @@ export function PopularPage() {
   return (
     // Главная страница
     <div className={`columns ${styles.main}`}>
+      <div className="column is-1"></div>
       {/* Медиа */}
 
-      <div className={`column is-one-fifth ${styles.nav}`}>
+      <div className="column is-2">
         <h2 className={styles.mediaTitle}>Медиа</h2>
         <nav>
           <NavLink
@@ -72,12 +73,13 @@ export function PopularPage() {
       </div>
       {/* Подгрузка карточек со статьями */}
 
-      <div className={`column ${styles.cards}`}>
+      <div className="column is-6">
         {article.map((prop) => (
           <ArticleCard props={prop} />
         ))}
       </div>
-      <div className="column is-3"></div>
+      <div className="column is-2"></div>
+      <div className="column is-1"></div>
     </div>
   );
 }

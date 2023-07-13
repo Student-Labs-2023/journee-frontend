@@ -1,6 +1,8 @@
 /* Окно статьи */
 
 .articleWindow {
+  position: static;
+
   border-radius: 6px;
   border: 1px solid #d4d4d4;
   background: #fff;
@@ -95,6 +97,16 @@
   line-height: normal;
 
   transition: all ease 0.6s;
+}
+
+@media (max-width: 1500px) {
+  .buttonSubscribe {
+    font-size: 12px;
+  }
+
+  .buttonDetails {
+    width: 46px;
+  }
 }
 
 .buttonSubscribe:hover {
@@ -264,5 +276,5 @@
 }
 
 .userSection {
-  padding: 0px 24px 24px 24px;
+  padding: 0px 18px 24px 24px;
 }
