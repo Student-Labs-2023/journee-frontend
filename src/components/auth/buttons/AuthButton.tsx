@@ -4,7 +4,7 @@ export default function AuthButton(props:React.PropsWithChildren<any>) {
     const { loginWithPopup } = useAuth0()
     function onClick(props:any) {
         return (...args:any) => {
-            props?.onClick(...args)
+            if ("onClick" in props) {props.onClick(...args)}
             loginWithPopup()
         }
     }
