@@ -1,6 +1,10 @@
 import { NavLink, Link } from 'react-router-dom';
 
+import { ArticleCard } from '../components/mainpage/ArticleCard';
+
 import styles from './PopularPage.module.css';
+
+import { article } from '../data/Article';
 
 export function PopularPage() {
   return (
@@ -66,10 +70,12 @@ export function PopularPage() {
           </div>
         </div>
       </div>
-      {/* Заглушка */}
+      {/* Подгрузка карточек со статьями */}
 
       <div className={`column ${styles.cards}`}>
-        <div className={styles.card}></div>
+        {article.map((prop) => (
+          <ArticleCard props={prop} />
+        ))}
       </div>
       <div className="column is-3"></div>
     </div>
