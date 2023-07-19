@@ -5,7 +5,12 @@
   padding: 0;
   box-sizing: border-box;
 
+
   font-family: 'Inter', sans-serif;
+}
+
+body, html{
+  background: #F2F2F2;
 }
 
 /* Анимация dropdown из модуля Header при помощи библиотеки react-transition-group*/

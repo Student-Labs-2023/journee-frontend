@@ -14,6 +14,7 @@ import userIcon from '../../img/Usericons_header.svg';
 import { Dropdown } from './dropdown/Dropdown';
 import { Modal } from './modal/Modal';
 import AuthButton from '../auth/buttons/AuthButton';
+import {ModalArticle} from "./modalArticle/ModalArticel";
 
 //Шапка
 
@@ -24,6 +25,8 @@ export function Header() {
   /* Состояние модального окна*/
   const [modal, setModal] = useState<boolean>(false);
 
+  const [article, setArticle] = useState<boolean>(false);
+
   /* Функция, которая передана в Dropdown.tsx для изменения состояния dropdown меню */
   const setDropdownState = (): void => {
     setDropdown(!dropdownState);
@@ -32,6 +35,10 @@ export function Header() {
   /* Функция, которая передана в SignIn.tsx для изменения состояния модального окна */
   const setModalState = (): void => {
     setModal(!modal);
+  };
+
+  const setArticleState = (): void => {
+      setArticle(!article);
   };
 
   return (
@@ -83,7 +90,7 @@ export function Header() {
             timeout={300}
             unmountOnExit
           >
-            <Dropdown setDropdown={setDropdownState} />
+            <Dropdown setDropdown={setDropdownState} setModalArticleState={setArticleState} />
           </CSSTransition>
         </div>
       </div>
@@ -126,6 +133,11 @@ export function Header() {
       <CSSTransition in={modal} classNames="modal" timeout={300} unmountOnExit>
         <Modal setModalState={setModalState} />
       </CSSTransition>
+
+        <CSSTransition in={article} classNames="modal" timeout={300} unmountOnExit>
+            <ModalArticle setModalState={setArticleState} />
+        </CSSTransition>
+
     </div>
   );
 }
