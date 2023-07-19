@@ -1,0 +1,280 @@
+/* Окно статьи */
+
+.articleWindow {
+  position: static;
+
+  border-radius: 6px;
+  border: 1px solid #d4d4d4;
+  background: #fff;
+}
+
+/* Блок автора */
+
+.articleWindowAuthor {
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.authorBlock {
+  display: flex;
+  flex-direction: row;
+}
+
+.detailsBlock {
+  padding-left: 10px;
+}
+
+.authorName {
+  color: var(--unnamed, #141414);
+  /* h3 headline */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* Запятая */
+
+.comma {
+  display: inline;
+  margin-right: 4px;
+}
+
+.details {
+  color: rgba(20, 20, 20, 0.7);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  transition: color ease 0.6s;
+}
+
+.details:hover {
+  color: var(--unnamed, #ff933c);
+
+  transition: color ease 0.6s;
+}
+
+.detailsTime {
+  padding: 28px 0px 0px 12px;
+
+  color: rgba(20, 20, 20, 0.7);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* Конпки подписаться и пожаловаться */
+
+.buttonBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+
+  padding-top: 6px;
+}
+
+.buttonSubscribe {
+  padding: 8px 18px 8px;
+
+  height: 32px;
+
+  border: 0px;
+  border-radius: 6px;
+  background: var(--unnamed, #f2f2f2);
+
+  color: rgba(20, 20, 20, 0.7);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  transition: all ease 0.6s;
+}
+
+@media (max-width: 1500px) {
+  .buttonSubscribe {
+    font-size: 12px;
+  }
+
+  .buttonDetails {
+    width: 46px;
+  }
+}
+
+.buttonSubscribe:hover {
+  color: rgba(20, 20, 20);
+  background: rgba(212, 212, 212, 0.4);
+
+  transition: all ease 0.6s;
+}
+
+.reportBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonDetails {
+  border: 0px;
+
+  height: 36px;
+
+  padding-left: 20px;
+
+  background-color: transparent;
+}
+
+/* Заголовок и текст */
+
+.articleWindowText {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.articleTitle {
+  color: var(--unnamed, #141414);
+  /* h2 headline */
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.articleText {
+  color: var(--unnamed, #141414);
+  /* Text */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+
+  margin-bottom: 12px;
+}
+
+/* Фото */
+
+.articleImage {
+  width: 100%;
+}
+
+/* Лайки, комментарии и сохраненки*/
+
+.userBlock {
+  display: flex;
+  flex-direction: row;
+}
+
+.userLikes {
+  color: var(--unnamed, #141414);
+  /* Numbers 2 */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  padding-left: 24px;
+
+  background-image: url('../../img/article/fi-rs-heartSocial\ Post.svg');
+  background-repeat: no-repeat;
+
+  transition: background-image ease 0.6s;
+}
+
+.userLikes:hover {
+  background-image: url('../../img/article/fi-rs-heartSocial\ Post-1.svg');
+
+  transition: background-image ease 0.6s;
+}
+
+.userLikesActive {
+  color: var(--unnamed, #141414);
+  /* Numbers 2 */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  padding-left: 24px;
+
+  background-image: url('../../img/article/fi-ss-heartSocial\ Post.svg');
+  background-repeat: no-repeat;
+}
+
+.userComments {
+  color: var(--unnamed, #141414);
+  /* Numbers 2 */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  padding-left: 24px;
+  margin-left: 24px;
+
+  background-image: url('../../img/article/fi-rs-commentsSocial\ Post.svg');
+  background-repeat: no-repeat;
+
+  transition: background-image ease 0.6s;
+}
+
+.userComments:hover {
+  background-image: url('../../img/article/fi-rs-commentsSocial\ Post-1.svg');
+  transition: background-image ease 0.6s;
+}
+
+.userCommentsActive {
+  color: var(--unnamed, #141414);
+  /* Numbers 2 */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  padding-left: 24px;
+  margin-left: 24px;
+
+  background-image: url('../../img/article/fi-rs-commentsSocial\ Post-2.svg');
+  background-repeat: no-repeat;
+}
+
+.userFavorite {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+
+  background-image: url('../../img/article/fi-rr-bookmarkSocial\ Post.svg');
+  background-repeat: no-repeat;
+
+  transition: background-image ease 0.6s;
+}
+
+.userFavorite:hover {
+  background-image: url('../../img/article/fi-rr-bookmarkSocial\ Post-1.svg');
+  transition: background-image ease 0.6s;
+}
+
+.userFavoriteActive {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+
+  background-image: url('../../img/article/fi-sr-bookmarkSocial\ Post.svg');
+  background-repeat: no-repeat;
+}
+
+.userSection {
+  padding: 0px 18px 24px 24px;
+}

@@ -1,0 +1,228 @@
+/* Главный блок (накосячил с сеткой) */
+
+.main {
+  padding-top: 20px;
+}
+
+/* Медиа заголовок */
+
+.mediaTitle {
+  color: var(--unnamed, #141414);
+
+  padding-left: 14px;
+  padding-bottom: 3px;
+
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+/* Популярное */
+
+.categoryPopularActive {
+  display: block;
+
+  padding: 8px 15px 8px 38px;
+
+  margin-top: 4px;
+
+  font-size: 17px;
+  line-height: normal;
+
+  border-radius: 6px;
+  border: 1px solid #d4d4d4;
+  background-color: #fff;
+
+  background-image: url('../img/Icons_BokovoeMenu/Fire_ActiveBokovoe_Menu.svg');
+  background-repeat: no-repeat;
+  background-position: 12px 8px;
+
+  height: 37px;
+  width: 155px;
+
+  color: var(--unnamed, #141414);
+}
+
+.categoryPopularInActive {
+  display: block;
+
+  padding: 8px 15px 8px 38px;
+
+  margin-top: 4px;
+
+  font-size: 17px;
+  line-height: normal;
+
+  background-image: url('../img/Icons_BokovoeMenu/Fire_DefaultBokovoe_Menu.svg');
+  background-repeat: no-repeat;
+  background-position: 12px 8px;
+
+  height: 37px;
+  width: 155px;
+
+  color: var(--unnamed, #141414);
+}
+
+/* Свежее */
+
+.categoryFreshActive {
+  display: block;
+
+  padding: 8px 15px 8px 36px;
+
+  margin-top: 4px;
+
+  font-size: 17px;
+  line-height: normal;
+
+  border-radius: 6px;
+  border: 1px solid #d4d4d4;
+  background-color: #fff;
+
+  background-image: url('../img/Icons_BokovoeMenu/New_ActiveBokovoe_Menu.svg');
+  background-repeat: no-repeat;
+  background-position: 12px 9px;
+
+  height: 37px;
+  width: 155px;
+
+  color: var(--unnamed, #141414);
+}
+
+.categoryFreshInActive {
+  display: block;
+
+  padding: 8px 15px 8px 38px;
+
+  margin-top: 4px;
+
+  font-size: 17px;
+  line-height: normal;
+
+  background-image: url('../img/Icons_BokovoeMenu/New_DefaultBokovoe_Menu.svg');
+  background-repeat: no-repeat;
+  background-position: 14px 8px;
+
+  height: 37px;
+  width: 155px;
+
+  color: var(--unnamed, #141414);
+}
+
+/* Заголовок сервисы */
+
+.servicesTitle {
+  color: var(--unnamed, #141414);
+
+  padding-top: 41px;
+  padding-left: 14px;
+  padding-bottom: 3px;
+
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+/* Маршруты */
+
+.categoryRoutesActive {
+  display: block;
+
+  padding: 8px 15px 8px 38px;
+
+  margin-top: 4px;
+
+  font-size: 17px;
+  line-height: normal;
+
+  border-radius: 6px;
+  border: 1px solid #d4d4d4;
+  background-color: #fff;
+
+  background-image: url('../img/Icons_BokovoeMenu/Map_ActiveBokovoe_Menu.svg');
+  background-repeat: no-repeat;
+  background-position: 12px 8px;
+
+  height: 37px;
+  width: 155px;
+
+  color: var(--unnamed, #141414);
+}
+
+.categoryRoutesInActive {
+  display: block;
+
+  padding: 7px 15px 8px 37px;
+
+  margin-top: 6px;
+
+  font-size: 17px;
+  line-height: normal;
+
+  background-image: url('../img/Icons_BokovoeMenu/Map_DefaultBokovoe_Menu.svg');
+  background-repeat: no-repeat;
+  background-position: 13px 8px;
+
+  height: 37px;
+  width: 155px;
+
+  color: var(--unnamed, #141414);
+}
+
+/* Блок доп. инофрмации */
+
+.details {
+  position: absolute;
+
+  width: 100%;
+
+  margin-left: 14px;
+  bottom: 80px;
+}
+
+/* Реклама */
+
+.advertisement {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: rgba(20, 20, 20, 0.7);
+  /* Link 1 */
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.advertisement:hover {
+  color: #141414;
+}
+
+/* О проекте и помощь */
+
+.otherBlock {
+  display: flex;
+  flex-direction: row;
+}
+
+.other {
+  display: block;
+
+  color: rgba(20, 20, 20, 0.7);
+  /* Link 1 */
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  padding-right: 16px;
+}
+
+.other:hover {
+  color: #141414;
+}
