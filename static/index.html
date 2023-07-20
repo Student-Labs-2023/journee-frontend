@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <style>
+        .markdown-editor {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .markdown-input {
+            flex: 1;
+            padding: 10px;
+            resize: none;
+        }
+
+        .markdown-preview {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+    </style>
+    <script src="/wasm_exec.js"></script>
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("/main.wasm"), go.importObject).then(result => {
+            go.run(result.instance);
+        });
+    </script>
+</head>
+<body>
+    <div class="markdown-editor">
+        <button onclick="init_renderer('.markdown-preview')">start</button>
+        <div class="markdown-preview" contenteditable><h1>Hello</h1></div>
+    </div>
+    <dialog class="contextmenu">
+        <form method="dialog">
+            <button onclick="menu.Header()">Header</button>
+            <button onclick="menu.Image()">Image</button>
+        </form>
+    </dialog>
+    <script>
+        ctx = document.querySelector(".contextmenu")
+        row = undefined
+        document.querySelector(".markdown-preview").oncontextmenu = (e) => {
+            e.preventDefault()
+            console.log(e)
+            const sel = getSelection()
+            row = sel.focusNode.parentElement
+            ctx.showModal()
+        }
+
+        const menu = {
+            Header:() => {
+                if (row == undefined) {return}
+                row.innerHTML = `<h1>${row.innerText}</h1>`
+            },
+            Image:() => {
+                if (row == undefined) {return}
+                const url = prompt("url:")
+                const img = document.createElement("img")
+                img.src = url
+                text = document.createElement("div")
+                text.innerText = "..."
+                row.parentNode.insertBefore(text, row.nextSibling)
+                row.parentNode.insertBefore(img, row.nextSibling)
+            }
+        }
+    </script>
+</body>
+</html>
