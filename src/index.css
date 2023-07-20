@@ -10,6 +10,7 @@
 }
 
 body, html{
+  height: calc(100% + 80px);
   background: #F2F2F2;
 }
 
