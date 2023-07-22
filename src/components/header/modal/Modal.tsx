@@ -6,7 +6,7 @@ import { Registration } from './registration/Registration';
 
 export function Modal({ setModalState }: { setModalState: () => void }) {
   /* Состояние модального окна */
-  const [entrance, setEntrance] = useState(true);
+  const [entrance, setEntrance] = useState<boolean>(true);
 
   /* Сохранение объекта с модальным окном */
   const modalRef = useRef<HTMLDivElement>(null);

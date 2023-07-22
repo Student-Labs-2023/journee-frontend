@@ -174,22 +174,22 @@
 /* Блок доп. инофрмации */
 
 .details {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
 
-  width: 100%;
+  height: calc(100% - 80px);
 
   margin-left: 14px;
-  bottom: 80px;
 }
 
 /* Реклама */
 
 .advertisement {
   margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom: 8px;
+
   color: rgba(20, 20, 20, 0.7);
   /* Link 1 */
-  font-family: Inter;
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -210,6 +210,8 @@
 .other {
   display: block;
 
+  margin-bottom: 80px;
+
   color: rgba(20, 20, 20, 0.7);
   /* Link 1 */
   font-family: Inter;
@@ -217,7 +219,9 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
 
+.other:not(:last-child) {
   padding-right: 16px;
 }
 

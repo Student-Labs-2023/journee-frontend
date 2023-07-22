@@ -1,0 +1,157 @@
+/* Шапка */
+
+.header {
+    position: sticky;
+    top: 0;
+
+    height: 80px;
+
+    background: #ffd1ab;
+}
+
+/* Лого шапки */
+
+.logo {
+    display: block;
+
+    margin-left: 14px;
+    margin-right: auto;
+    margin-top: 12px;
+}
+/* Поиск */
+
+.centerBlock {
+    display: flex;
+    flex-direction: row;
+
+    margin-left: auto;
+}
+
+.searchBlock {
+    width: 100%;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 6px;
+}
+
+.searchInput {
+    position: relative;
+
+    height: 45px;
+    width: 100%;
+
+    border-radius: 0px 6px 6px 0px;
+    border: 1px solid var(--c, #d4d4d4);
+    border-left-style: none;
+
+    background: var(--unnamed, #fff);
+
+    color: rgba(20, 20, 20, 0.5);
+    outline: none;
+
+    font-family: Inter;
+    font-size: 16px;
+}
+
+.searchIcon {
+    height: 45px;
+
+    padding: 12px 8px 0px 20px;
+
+    border-radius: 6px 0px 0px 6px;
+    border: 1px solid var(--c, #d4d4d4);
+    border-right-style: none;
+
+    background: var(--unnamed, #fff);
+}
+
+/* Кнопка создания маршрута */
+
+.buttonBlock {
+    margin-left: 71px;
+}
+
+.button {
+    display: flex;
+
+    height: 45px;
+    width: 140px;
+
+    margin-top: 7px;
+    margin-left: auto;
+
+    padding: 13px 26px 13px;
+
+    border-radius: 4px;
+    border: 0px;
+
+    background: var(--unnamed, #fff);
+
+    cursor: pointer;
+
+    transition: background-color ease 0.6s;
+}
+
+.button:hover {
+    background: #f2f2f2;
+
+    transition: background-color ease 0.6s;
+}
+
+.buttonIcon {
+    padding-top: 1px;
+}
+
+.buttonText {
+    margin-left: 6px;
+
+    font-size: 16px;
+}
+
+/* Блок уведомлений и входа */
+
+.user {
+    margin-top: -1px;
+}
+
+.userNotification {
+    display: block;
+
+    margin-left: auto;
+    padding: 8px 8px 6px;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+    border: 0px;
+
+    background-color: transparent;
+
+    flex-shrink: 0;
+
+    transition: background-color ease 0.6s;
+}
+
+.userNotification:hover {
+    background: rgba(20, 20, 20, 0.05);
+
+    transition: background-color ease 0.6s;
+}
+
+.userProfile {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: -4px;
+}
+
+.userProfileButton {
+    background: transparent;
+    border: 0px;
+
+    margin-left: 4px;
+}

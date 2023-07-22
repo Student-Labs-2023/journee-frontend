@@ -3,15 +3,9 @@ import { Link } from 'react-router-dom';
 
 import styles from './Dropdown.module.css';
 
-import recordIcon from '../../../img/¦бTВ¦-TВTМTПicons_header.svg';
-import routeIcon from '../../../img/fi-rs-map-marker.svg';
+import reportIcon from '../../../img/article/fi-rs-triangle.svg';
 
-interface IDropdown {
-  setDropdown: () => void;
-  setModalArticleState: () => void;
-}
-
-export function Dropdown({ setDropdown, setModalArticleState }: IDropdown) {
+export function Dropdown({ setDropdown }: { setDropdown: () => void }) {
   //Сохранение объекта с dropdown меню
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -31,15 +25,12 @@ export function Dropdown({ setDropdown, setModalArticleState }: IDropdown) {
   }, []);
 
   return (
-    //Dropdown меню
+    /* Dropdown меню */
+
     <div ref={dropdownRef} className={styles.dropdown}>
-      <button className={styles.dropdownButton} onClick={() => {setModalArticleState()}}>
-        <img className={styles.dropdownImage} src={recordIcon} alt="record" />
-        Запись
-      </button>
-      <Link className={styles.dropdownLink} to="/">
-        <img className={styles.dropdownImage} src={routeIcon} alt="route" />
-        Маршрут
+      <Link className={styles.dropdownButton} to="/">
+        <img className={styles.dropdownImage} src={reportIcon} alt="record" />
+        Пожаловаться
       </Link>
     </div>
   );
