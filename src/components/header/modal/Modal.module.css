@@ -21,6 +21,11 @@
 
   width: 374px;
 
+  margin-right: auto;
+  margin-left: auto;
+
+  left: 0px;
+  right: 0px;
   top: 120px;
 
   border-radius: 6px;

@@ -112,9 +112,9 @@ export function Header() {
           {/* Блок авторизации */}
 
           <div className="column is-6">
-              <AuthButton
+              <button
                 className={styles.userAuthorization}
-                //onClick={() => setModal(!modal)} Жалко😢, но тут будет auth0
+                onClick={() => setModal(!modal)}
               >
                 <img
                   className={styles.userAuthorizationImage}
@@ -122,7 +122,7 @@ export function Header() {
                   alt="sign in"
                 />
                 <p className={styles.userAuthorizationText}>Войти</p>
-              </AuthButton>
+              </button>
           </div>
         </div>
       </div>
