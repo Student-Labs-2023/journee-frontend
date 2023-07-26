@@ -9,7 +9,7 @@ import { article } from '../data/Article';
 export function PopularPage() {
   return (
     // Главная страница
-    <div className={`columns ${styles.main}`}>
+    <div  key="PopularPage"  className={`columns ${styles.main}`}>
       <div className="column is-1"></div>
       {/* Медиа */}
 

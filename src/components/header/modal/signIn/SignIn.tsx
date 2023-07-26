@@ -1,4 +1,6 @@
+import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 import google from '../../../../img/Icons_SignIn/Google.svg';
 import vk from '../../../../img/Icons_SignIn/VK.svg';
@@ -6,23 +8,70 @@ import appleId from '../../../../img/Icons_SignIn/Apple.svg';
 
 import styles from './SignIn.module.css';
 
+type createLoginRequest = {
+  email: string;
+  password: string;
+};
+
 export function SignIn() {
+
+  const [isReady, setReady] = useState<boolean>(false);
+  const [isEmail, setEmail] = useState<string>("");
+  const [isPassword, setPassword] = useState<string>("");
+
+  const onSubmit = (e : FormEvent<HTMLFormElement>) : void => {
+    e.preventDefault();
+
+    setReady(true);
+  };
+
+  async function signIn() : Promise <string | undefined> {
+      try {
+        const { data, status } = await axios.post<createLoginRequest>(
+            'http://178.170.192.87/auth/v1/login?grant_type=password', // 👈 ❗️❗️ URL для авторизации замени в ковычках, ответ выводится в консоль
+            { email : isEmail, password : isPassword },
+        );
+
+        console.log(JSON.stringify(data, null, 4));
+        console.log(status);
+      } catch (error) {
+          if (axios.isAxiosError(error)) {
+            console.log('error message: ', error.message);
+            // 👇️ error: AxiosError<any, any>
+            return error.message;
+          } else {
+            console.log('unexpected error: ', error);
+            return 'An unexpected error occurred';
+        }
+      }
+  }
+
+  useEffect(() : void => {
+    if (isReady) {
+      void signIn();
+
+      setReady(false);
+    }
+  }, [isReady])
+
   return (
     //Блок входа
 
     <div>
       {/* Форма входа */}
 
-      <form className={styles.authorizationBlock}>
+      <form onSubmit={onSubmit} className={styles.authorizationBlock}>
         <input
           className={styles.authorizationInput}
           type="email"
           placeholder="Почта"
+          onChange={(e : ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
         />
         <input
           className={styles.authorizationInput}
           type="password"
           placeholder="Пароль"
+          onChange={(e : ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         />
         <button className={styles.authorizationButton} type="submit">
           Войти
