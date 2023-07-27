@@ -50,9 +50,31 @@
     gap: 1rem;
     flex-direction: column;
 }
-.modalWindow > div:first-child {flex: 1;}
-.modalWindow > div:first-child > div {height: 100%;}
+
+.modalWindow > input {
+    border: none;
+}
+
+.Header {
+    font-size: 2rem;
+}
+
+.modalWindow > div:nth-child(3) {flex: 1;}
+.modalWindow > div:nth-child(3) > div {height: 100%;}
 
 .submit {
     font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .75rem;
+}
+
+.submit > button {
+    color: white;
+    padding: .5rem 1rem;
+    background-color: #FF933C;
+    border: none;
+    border-radius: 6px;
 }

@@ -121,11 +121,11 @@ export function ModalArticle({ setModalState }: { setModalState: () => void }) {
         <div className={styles.backdrop}></div>
 
         <div className={styles.modalWindow}>
-            <input type="text" value={Header} onChange={e => setHeader(e.target.value)} />
+            <input type="text" className={styles.Header} value={Header} onChange={e => setHeader(e.target.value)} />
             <input type="text" value={Description} onChange={e => setDescription(e.target.value)} />
             <BlockNoteView editor={editor} />
             <div className={styles.submit}>
-                <p></p>
+                <p>Потоки для публикации</p>
                 <button onClick={HandleSubmit}>Отправить</button>
             </div>
         </div>
