@@ -33,7 +33,7 @@
     border: 1px solid #d4d4d4;
     background-color: #fff;
 
-    background-image: url('../img/Icons_BokovoeMenu/Fire_ActiveBokovoe_Menu.svg');
+    background-image: url('../../img/Icons_BokovoeMenu/Fire_ActiveBokovoe_Menu.svg');
     background-repeat: no-repeat;
     background-position: 11px 7px;
 
@@ -53,7 +53,7 @@
     font-size: 17px;
     line-height: normal;
 
-    background-image: url('../img/Icons_BokovoeMenu/Fire_DefaultBokovoe_Menu.svg');
+    background-image: url('../../img/Icons_BokovoeMenu/Fire_DefaultBokovoe_Menu.svg');
     background-repeat: no-repeat;
     background-position: 12px 8px;
 
@@ -79,7 +79,7 @@
     border: 1px solid #d4d4d4;
     background-color: #fff;
 
-    background-image: url('../img/Icons_BokovoeMenu/New_ActiveBokovoe_Menu.svg');
+    background-image: url('../../img/Icons_BokovoeMenu/New_ActiveBokovoe_Menu.svg');
     background-repeat: no-repeat;
     background-position: 12px 8px;
 
@@ -99,7 +99,7 @@
     font-size: 17px;
     line-height: normal;
 
-    background-image: url('../img/Icons_BokovoeMenu/New_DefaultBokovoe_Menu.svg');
+    background-image: url('../../img/Icons_BokovoeMenu/New_DefaultBokovoe_Menu.svg');
     background-repeat: no-repeat;
     background-position: 13px 8px;
 
@@ -141,7 +141,7 @@
     border: 1px solid #d4d4d4;
     background-color: #fff;
 
-    background-image: url('../img/Icons_BokovoeMenu/Map_ActiveBokovoe_Menu.svg');
+    background-image: url('../../img/Icons_BokovoeMenu/Map_ActiveBokovoe_Menu.svg');
     background-repeat: no-repeat;
     background-position: 12px 8px;
 
@@ -161,7 +161,7 @@
     font-size: 17px;
     line-height: normal;
 
-    background-image: url('../img/Icons_BokovoeMenu/Map_DefaultBokovoe_Menu.svg');
+    background-image: url('../../img/Icons_BokovoeMenu/Map_DefaultBokovoe_Menu.svg');
     background-repeat: no-repeat;
     background-position: 13px 8px;
 
@@ -258,152 +258,3 @@
         font-size: 14px;
     }
 }
-
-
-.profile {
-    width: 100%;
-
-
-
-     margin-bottom: 40px;
-
-    padding: 24px;
-
-    border-radius: 6px;
-    border: 1px solid #D4D4D4;
-    background: #FFF;
-}
-
-.profileUser {
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 9px;
-    padding-left: 16px;
-}
-
-.profileBlock {
-    display: flex;
-    flex-direction: row;
-}
-
-.profileUserName {
-    color: #141414;
-    /* h2 headline */
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%; /* 28.8px */
-}
-
-.profileUserRating {
-    display: inline;
-
-    color: #4CAF50;
-    /* Numbers 2 */
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-
-    padding-right: 16px;
-}
-
-.profileUserSubs {
-    display: inline;
-
-    padding-right: 6px;
-}
-
-.profileUserSubsDisc {
-    display: inline;
-
-    color: rgba(20, 20, 20, 0.50);
-    /* Numbers 2 */
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.profileUserButton {
-    background: transparent;
-    border: 0px;
-
-    margin-top: 16px;
-
-    color: rgba(255, 147, 60, 0.70);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%; /* 20.8px */
-
-    transition: color ease 0.6s;
-}
-
-.profileUserButton:hover {
-    color: #FF933C;
-
-    transition: color ease 0.6s;
-}
-
-.profileSettings {
-    padding: 7px 7px 4px 7px;
-
-    background: transparent;
-
-    border-radius: 4px;
-    border: 1px solid #D4D4D4;
-
-    transition: background-color ease 0.6s;
-}
-
-.profileSettings:hover {
-    background: #f2f2f2;
-
-    transition: background-color ease 0.6s;
-}
-
-.article {
-    color: #141414;
-    /* h3 headline */
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.articleButton {
-    display: flex;
-    flex-direction: row;
-
-    background: transparent;
-
-    border-radius: 4px;
-    border: 1px solid #D4D4D4;
-    background: #FFF;
-
-    padding: 13px 26px 13px 26px;
-
-    transition: background-color ease 0.6s;
-}
-
-.articleButtonText {
-    color:#141414;
-    /* Button_2 */
-
-    padding-left: 6px;
-
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-.articleButton:hover {
-    background: #f2f2f2;
-
-    transition: background-color ease 0.6s;
-}
-
-
-

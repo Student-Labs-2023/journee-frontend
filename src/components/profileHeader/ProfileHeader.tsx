@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
+import {useState} from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import {CSSTransition} from 'react-transition-group';
 
-import '../../bulma/bulma.css';
+import '../../styles/bulma.css'
 import styles from './ProfileHeader.module.css';
 
-import logoIcon from '../../img/Logoicons_header.svg';
-import searchIcon from '../../img/50.svg';
-import buttonIcon from '../../img/fi-rs-plus-small.svg';
-import notificationIcon from '../../img/notificationicons_header.svg';
+import logoIcon from '../../img/header/Logoicons_header.svg';
+import searchIcon from '../../img/header/50.svg';
+import buttonIcon from '../../img/header/fi-rs-plus-small.svg';
+import notificationIcon from '../../img/header/notificationicons_header.svg';
 import userIcon from '../../img/profile/Ellipse 6.png';
 import userDropdown from '../../img/profile/fi-rs-angle-small-down.svg';
 
-import { Dropdown } from '../header/dropdown/Dropdown';
-import { Modal } from '../header/modal/Modal';
+import {Dropdown} from '../header/dropdown/Dropdown';
+import {Modal} from '../header/modal/Modal';
 import {ModalArticle} from "../header/modalArticle/ModalArticel";
 import {DropdownProfile} from "./dropdown/DropdownProfile";
 
@@ -43,7 +43,7 @@ export function ProfileHeader() {
         setArticle(!article);
     };
 
-    const setDropdownProfileState = () : void => {
+    const setDropdownProfileState = (): void => {
         setDropdownProfile(!dropdownProfile);
     };
 
@@ -54,7 +54,9 @@ export function ProfileHeader() {
             {/* Лого */}
 
             <div className="column is-2">
-                <Link to="/">
+                <Link to="/profile" onClick={(e) => {
+                    e.preventDefault() //Временно onClick
+                }}>
                     <img className={styles.logo} src={logoIcon} alt="logo"></img>
                 </Link>
             </div>
@@ -65,7 +67,7 @@ export function ProfileHeader() {
                 <div className={styles.searchBlock}>
                     <form className={styles.search}>
                         <div className={styles.searchIcon}>
-                            <img src={searchIcon} alt="search" />
+                            <img src={searchIcon} alt="search"/>
                         </div>
                         <input
                             className={styles.searchInput}
@@ -96,7 +98,7 @@ export function ProfileHeader() {
                         timeout={300}
                         unmountOnExit
                     >
-                        <Dropdown setDropdown={setDropdownState} setModalArticleState={setArticleState} />
+                        <Dropdown setDropdown={setDropdownState} setModalArticleState={setArticleState}/>
                     </CSSTransition>
                 </div>
             </div>
@@ -112,15 +114,18 @@ export function ProfileHeader() {
                             className={styles.userNotification}
                             onClick={() => console.log('Открыть уведомления')}
                         >
-                            <img src={notificationIcon} alt="notifications" />
+                            <img src={notificationIcon} alt="notifications"/>
                         </button>
                     </div>
                     {/* Блок авторизации */}
 
                     <div className="column is-6">
                         <div className={styles.userProfile}>
-                            <img src={userIcon} alt={'user'} />
-                            <button  className={styles.userProfileButton}  onClick={() => setDropdownProfile(!dropdownProfile)} ><img src={userDropdown} alt={'userDropdown'} /></button>
+                            <img src={userIcon} alt={'user'}/>
+                            <button className={styles.userProfileButton}
+                                    onClick={() => setDropdownProfile(!dropdownProfile)}><img src={userDropdown}
+                                                                                              alt={'userDropdown'}/>
+                            </button>
                         </div>
                         <CSSTransition
                             in={dropdownProfile}
@@ -128,7 +133,7 @@ export function ProfileHeader() {
                             timeout={300}
                             unmountOnExit
                         >
-                            <DropdownProfile setDropdown={setDropdownProfileState} />
+                            <DropdownProfile setDropdown={setDropdownProfileState}/>
                         </CSSTransition>
                     </div>
                 </div>
@@ -138,11 +143,11 @@ export function ProfileHeader() {
             {/* Модальное окно входа & регистрации */}
 
             <CSSTransition in={modal} classNames="modal" timeout={300} unmountOnExit>
-                <Modal setModalState={setModalState} />
+                <Modal setModalState={setModalState}/>
             </CSSTransition>
 
             <CSSTransition in={article} classNames="modal" timeout={300} unmountOnExit>
-                <ModalArticle setModalState={setArticleState} />
+                <ModalArticle setModalState={setArticleState}/>
             </CSSTransition>
 
         </div>

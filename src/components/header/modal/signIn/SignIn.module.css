@@ -1,132 +1,132 @@
 .authorizationBlock {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Поля ввода */
 
 .authorizationInput {
-  height: 45px;
+    height: 45px;
 
-  padding-left: 16px;
+    padding-left: 16px;
 
-  border-radius: 6px;
-  border: 1px solid var(--c, #d4d4d4);
-  background: var(--unnamed, #fff);
+    border-radius: 6px;
+    border: 1px solid var(--c, #d4d4d4);
+    background: var(--unnamed, #fff);
 
-  color: rgba(20, 20, 20);
-  /* Field_text */
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+    color: rgba(20, 20, 20);
+    /* Field_text */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 
-  outline: none;
+    outline: none;
 
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 
-  transition: border ease 0.6s;
+    transition: border ease 0.6s;
 }
 
 .authorizationInput:focus {
-  border: 1px solid var(--unnamed, #aaa);
+    border: 1px solid var(--unnamed, #aaa);
 
-  transition: border ease 0.6s;
+    transition: border ease 0.6s;
 }
 
 ::placeholder {
-  color: rgba(20, 20, 20, 0.5);
+    color: rgba(20, 20, 20, 0.5);
 }
 
 /* Конпка формы */
 
 .authorizationButton {
-  height: 45px;
+    height: 45px;
 
-  border: 0px;
+    border: 0px;
 
-  border-radius: 6px;
-  background: rgba(255, 147, 60, 0.7);
+    border-radius: 6px;
+    background: rgba(255, 147, 60, 0.7);
 
-  color: var(--unnamed, #fff);
-  /* Button_17_Semibold */
-  font-family: Inter;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+    color: var(--unnamed, #fff);
+    /* Button_17_Semibold */
+    font-family: Inter;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 
-  transition: background ease 0.6s;
+    transition: background ease 0.6s;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .authorizationButton:hover {
-  background: #ff933c;
-  transition: background ease 0.6s;
+    background: #ff933c;
+    transition: background ease 0.6s;
 }
 
 /* Виджеты */
 
 .authorizationWidgets {
-  margin-top: 32px;
+    margin-top: 32px;
 
-  text-align: center;
+    text-align: center;
 }
 
 .widgets:not(:last-child) {
-  margin-right: 12px;
+    margin-right: 12px;
 }
 
 .widgets {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 
-  border-radius: 6px;
-  border: 0px;
+    border-radius: 6px;
+    border: 0px;
 
-  cursor: pointer;
-  transition: opacity ease 0.6s;
+    cursor: pointer;
+    transition: opacity ease 0.6s;
 }
 
 .widgets:hover {
-  opacity: 0.8;
-  transition: opacity ease 0.6s;
+    opacity: 0.8;
+    transition: opacity ease 0.6s;
 }
 
 .widgetsGoogle {
-  background: #ea4335;
+    background: #ea4335;
 }
 
 .widgetsVK {
-  background: #07f;
+    background: #07f;
 }
 
 .widgetsApple {
-  background: #000;
+    background: #000;
 }
 
 /* Пользовательское соглашение */
 
 .agreement {
-  margin-top: 24px;
+    margin-top: 24px;
 
-  color: var(--unnamed, #141414);
-  text-align: center;
+    color: var(--unnamed, #141414);
+    text-align: center;
 
-  /* Caption */
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+    /* Caption */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .agreementLink {
-  color: rgba(20, 20, 20, 0.7);
+    color: rgba(20, 20, 20, 0.7);
 }
 
 .agreementLink:hover {
-  color: var(--unnamed, #141414);
+    color: var(--unnamed, #141414);
 }
