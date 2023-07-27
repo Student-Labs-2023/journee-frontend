@@ -1,12 +1,16 @@
-import { NavLink, Link } from 'react-router-dom';
+import {NavLink, Link, useLocation} from 'react-router-dom';
 
 import styles from './ProfilePage.module.css';
 
-import profileIcon from '../img/profilePage/Ellipse 6 (1).png'
-import settingsIcon from '../img/profilePage/fi-rs-settings.svg'
-import createArticleIcon from '../img/profilePage/fi-rs-pencil.svg'
+import profileIcon from '../../img/profilePage/Ellipse 6 (1).png'
+import settingsIcon from '../../img/profilePage/fi-rs-settings.svg'
+import createArticleIcon from '../../img/profilePage/fi-rs-pencil.svg'
 
 export function ProfilePage() {
+    const {state} = useLocation();
+
+    //console.log(state.data.user);
+
     return (
         // Главная страница
         <div className={`columns ${styles.main}`}>
@@ -17,7 +21,7 @@ export function ProfilePage() {
                 <h2 className={styles.mediaTitle}>Медиа</h2>
                 <nav>
                     <NavLink
-                        className={({ isActive }: { isActive: boolean }) =>
+                        className={({isActive}: { isActive: boolean }) =>
                             isActive
                                 ? `${styles.categoryPopularActive}`
                                 : `${styles.categoryPopularInActive}`
@@ -28,15 +32,17 @@ export function ProfilePage() {
                         Популярное
                     </NavLink>
                     <NavLink
-                        className={({ isActive }: { isActive: boolean }) =>
+                        className={({isActive}: { isActive: boolean }) =>
                             isActive
                                 ? `${styles.categoryFreshActive}`
                                 : `${styles.categoryFreshInActive}`
                         }
                         to="/profile/other"
                         end
+
+                        state={state}
                     >
-                        Свежее
+                        Свежее {/*Временно state={state} */}
                     </NavLink>
                 </nav>
                 {/* Сервисы */}
@@ -44,13 +50,17 @@ export function ProfilePage() {
                 <h2 className={styles.servicesTitle}>Сервисы</h2>
                 <nav>
                     <NavLink
-                        className={({ isActive }: { isActive: boolean }) =>
+                        className={({isActive}: { isActive: boolean }) =>
                             isActive
                                 ? `${styles.categoryRoutesActive}`
                                 : `${styles.categoryRoutesInActive}`
                         }
                         to="/"
                         end
+
+                        onClick={(e) => {
+                            e.preventDefault() //Временно onClick
+                        }}
                     >
                         Маршруты
                     </NavLink>
@@ -78,12 +88,12 @@ export function ProfilePage() {
                     <div className="columns">
                         <div className="column is-10">
                             <div className={styles.profileBlock}>
-                                <img src={profileIcon} alt={profileIcon} />
+                                <img src={profileIcon} alt={profileIcon}/>
                                 <div className={styles.profileUser}>
-                                    <p className={styles.profileUserName}>Иванов Петр</p>
+                                    <p className={styles.profileUserName}>{state.data.user.user_metadata.fullName}</p>
                                     <div>
-                                        <p className={styles.profileUserRating}>+ 1034</p>
-                                        <strong className={styles.profileUserSubs}>680</strong>
+                                        <p className={styles.profileUserRating}>+ 0</p>
+                                        <strong className={styles.profileUserSubs}>0</strong>
                                         <p className={styles.profileUserSubs}>подписчиков</p>
                                     </div>
                                 </div>
@@ -92,7 +102,7 @@ export function ProfilePage() {
                         </div>
                         <div className="column is-2 has-text-right">
                             <button className={styles.profileSettings}>
-                                <img src={settingsIcon} alt={settingsIcon} />
+                                <img src={settingsIcon} alt={settingsIcon}/>
                             </button>
                         </div>
                     </div>
@@ -100,7 +110,8 @@ export function ProfilePage() {
                 <div className={styles.profile}>
                     <div className="columns">
                         <div className="column is-8">
-                            <p className={styles.article}>Напишите первую статью, чтобы привлечь читателей в ваш блог</p>
+                            <p className={styles.article}>Напишите первую статью, чтобы привлечь читателей в ваш
+                                блог</p>
                         </div>
                     </div>
                     <div className="columns">

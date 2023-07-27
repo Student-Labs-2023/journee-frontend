@@ -1,82 +1,82 @@
 /* Серый фон */
 
 .backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 
-  pointer-events: none;
+    pointer-events: none;
 
-  background: rgba(20, 20, 20, 0.4);
+    background: rgba(20, 20, 20, 0.4);
 }
 
 /* Модальное окно */
 
 .modalWindow {
-  position: absolute;
+    position: absolute;
 
-  padding: 32px;
+    padding: 32px;
 
-  width: 374px;
+    width: 374px;
 
-  margin-right: auto;
-  margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 
-  left: 0px;
-  right: 0px;
-  top: 120px;
+    left: 0px;
+    right: 0px;
+    top: 120px;
 
-  border-radius: 6px;
-  border: 1px solid var(--c, #d4d4d4);
-  background: var(--unnamed, #fff);
+    border-radius: 6px;
+    border: 1px solid var(--c, #d4d4d4);
+    background: var(--unnamed, #fff);
 
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 /* Вкладка модального окна */
 
 .entranceActive {
-  border: 0px;
+    border: 0px;
 
-  padding-left: 24px;
-  padding-bottom: 24px;
+    padding-left: 24px;
+    padding-bottom: 24px;
 
-  background: transparent;
+    background: transparent;
 
-  color: var(--unnamed, #141414);
-  /* h2 headline */
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
+    color: var(--unnamed, #141414);
+    /* h2 headline */
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .entranceActive:first-child {
-  padding-left: 36px;
+    padding-left: 36px;
 }
 
 .entranceInActive {
-  border: 0px;
-  padding-left: 24px;
+    border: 0px;
+    padding-left: 24px;
 
-  background: transparent;
+    background: transparent;
 
-  color: var(--unnamed, #aaa);
-  /* h2 headline */
-  font-family: Inter;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%;
+    color: var(--unnamed, #aaa);
+    /* h2 headline */
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .entranceInActive:first-child {
-  padding-left: 36px;
+    padding-left: 36px;
 }

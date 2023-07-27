@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import {useRef, useEffect} from 'react';
 import {Link} from "react-router-dom";
 
 import styles from './DropdownProfile.module.css';
@@ -9,7 +9,8 @@ import favoriteIcon from "../../../img//profileDropdown/fi-rr-bookmark.svg";
 import settingsIcon from "../../../img//profileDropdown/fi-rs-settings (1).svg";
 import outIcon from "../../../img//profileDropdown/fi-rs-sign-out-alt.svg";
 
-export function DropdownProfile({ setDropdown }: {setDropdown: () => void}) {
+//Временно state: any
+export function DropdownProfile({setDropdown}: { setDropdown: () => void }) {
     //Сохранение объекта с dropdown меню
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -31,24 +32,32 @@ export function DropdownProfile({ setDropdown }: {setDropdown: () => void}) {
     return (
         //Dropdown меню
         <div ref={dropdownRef} className={styles.dropdown}>
-            <Link className={styles.dropdownLink} to="/profile">
-                <img className={styles.dropdownImage} src={userIcon} alt="userIcon" />
+            <Link className={styles.dropdownLink} to="/profile" onClick={(e) => {
+                e.preventDefault() //Временно onClick
+            }}>
+                <img className={styles.dropdownImage} src={userIcon} alt="userIcon"/>
                 Мой блог
             </Link>
-            <Link className={styles.dropdownLink} to="/profile">
-                <img className={styles.dropdownImage} src={routeIcon} alt="routeIcon" />
+            <Link className={styles.dropdownLink} to="/profile" onClick={(e) => {
+                e.preventDefault() //Временно onClick
+            }}>
+                <img className={styles.dropdownImage} src={routeIcon} alt="routeIcon"/>
                 Мои маршруты
             </Link>
-            <Link className={styles.dropdownLink} to="/profile">
-                <img className={styles.dropdownImage} src={favoriteIcon} alt="favoriteIcon" />
+            <Link className={styles.dropdownLink} to="/profile" onClick={(e) => {
+                e.preventDefault() //Временно onClick
+            }}>
+                <img className={styles.dropdownImage} src={favoriteIcon} alt="favoriteIcon"/>
                 Закладки
             </Link>
-            <Link className={styles.dropdownLink} to="/profile">
-                <img className={styles.dropdownImage} src={settingsIcon} alt="settingsIcon" />
+            <Link className={styles.dropdownLink} to="/profile" onClick={(e) => {
+                e.preventDefault() //Временно onClick
+            }}>
+                <img className={styles.dropdownImage} src={settingsIcon} alt="settingsIcon"/>
                 Настройки
             </Link>
-            <Link className={styles.dropdownLink} to="/profile">
-                <img className={styles.dropdownImage} src={outIcon} alt="outIcon" />
+            <Link className={styles.dropdownLink} to="/">
+                <img className={styles.dropdownImage} src={outIcon} alt="outIcon"/>
                 Выйти
             </Link>
         </div>
