@@ -4,9 +4,16 @@ import {ArticleCard} from '../../components/mainpage/ArticleCard';
 
 import styles from './PopularPage.module.css';
 
-import {article} from '../../data/Article';
+import {get as get_articles} from '../../data/Article';
+import { useEffect, useState } from 'react';
 
 export function PopularPage() {
+    const [Articles, setArticels] = useState([])
+    useEffect(() => {
+        get_articles().then(res => {
+            setArticels(res)
+        })
+    }, [])
     return (
         // Главная страница
         <div key="PopularPage" className={`columns ${styles.main}`}>
@@ -74,7 +81,7 @@ export function PopularPage() {
             {/* Подгрузка карточек со статьями */}
 
             <div className="column is-6">
-                {article.map((prop) => (
+                {Articles.map((prop) => (
                     <ArticleCard props={prop}/>
                 ))}
             </div>

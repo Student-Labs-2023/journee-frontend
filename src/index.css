@@ -10,7 +10,7 @@
 }
 
 body, html {
-    height: calc(100% + 200px);
+    min-height: calc(100% + 200px);
     background: #F2F2F2;
 }
 

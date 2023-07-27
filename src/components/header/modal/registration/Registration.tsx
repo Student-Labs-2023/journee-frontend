@@ -47,6 +47,8 @@ export function Registration() {
         );
 
         console.log(JSON.stringify(data, null, 4));
+        localStorage.setItem("token", (data as any).access_token)
+        localStorage.setItem("user_id", (data as any).user.id)
         console.log(status);
 
         return navigate('/profile', {state: {data}});

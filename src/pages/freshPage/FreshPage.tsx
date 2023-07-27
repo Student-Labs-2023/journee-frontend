@@ -4,9 +4,16 @@ import {ArticleCard} from '../../components/mainpage/ArticleCard';
 
 import styles from './FreshPage.module.css';
 
-import {article} from '../../data/Article';
+import {get as get_articles} from '../../data/Article';
+import { useEffect, useState } from 'react';
 
 export function FreshPage() {
+    const [Articles, setArticles] = useState([])
+    useEffect(() => {
+        get_articles().then(res => {
+            setArticles(res)
+        })
+    }, [])
     return (
         // Главная страница
         <div key="FreshPage" className={`columns ${styles.main}`}>
@@ -74,8 +81,8 @@ export function FreshPage() {
             {/* Подгрузка карточек со статьями */}
 
             <div className="column is-6">
-                {article.map((prop) => (
-                    <ArticleCard props={prop}/>
+                {Articles.map((prop, i) => (
+                    <ArticleCard props={prop} key={i}/>
                 ))}
             </div>
             <div className="column is-2"></div>
