@@ -15,18 +15,16 @@
 .modalWindow {
     position: absolute;
 
-    padding: 16px 57px 40px 16px;
+    padding: 16px;
 
     width: 880px;
     height: 680px;
 
-    top: 120px;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
 
-    left: 0px;
-    right: 0px;
-
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0;
 
 
     border-radius: 6px;
@@ -34,4 +32,27 @@
     background: #FFFFFF;
 
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.modalWindow :is(
+    h1,
+    h2,
+    h3
+) {
+    font-weight: bold;
+}
+.modalWindow h1 {font-size: 2em;}
+.modalWindow h2 {font-size: 1.5em;}
+.modalWindow h2 {font-size: 1.17em;}
+
+.modalWindow {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+.modalWindow > div:first-child {flex: 1;}
+.modalWindow > div:first-child > div {height: 100%;}
+
+.submit {
+    font-size: 1.5rem;
 }
