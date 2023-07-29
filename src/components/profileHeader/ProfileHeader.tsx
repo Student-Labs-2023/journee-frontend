@@ -54,9 +54,7 @@ export function ProfileHeader() {
             {/* Лого */}
 
             <div className="column is-2">
-                <Link to="/profile" onClick={(e) => {
-                    e.preventDefault() //Временно onClick
-                }}>
+                <Link to="/">
                     <img className={styles.logo} src={logoIcon} alt="logo"></img>
                 </Link>
             </div>
@@ -120,8 +118,10 @@ export function ProfileHeader() {
                     {/* Блок авторизации */}
 
                     <div className="column is-6">
-                        <div className={styles.userProfile}>
-                            <img src={userIcon} alt={'user'}/>
+                        <div className={styles.userProfile} onMouseEnter={() => setDropdownProfile(true)}>
+                            <Link to="/profile">
+                                <img src={userIcon} alt={'user'}/>
+                            </Link>
                             <button className={styles.userProfileButton}
                                     onClick={() => setDropdownProfile(!dropdownProfile)}><img src={userDropdown}
                                                                                               alt={'userDropdown'}/>

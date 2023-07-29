@@ -34,7 +34,7 @@ export function Dropdown({setDropdown, setModalArticleState}: IDropdown) {
         //Dropdown меню
         <div ref={dropdownRef} className={styles.dropdown}>
             <button className={styles.dropdownButton} onClick={() => {
-                setModalArticleState()
+                window.location.replace("/article/create")
             }}>
                 <img className={styles.dropdownImage} src={recordIcon} alt="record"/>
                 Запись

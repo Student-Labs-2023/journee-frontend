@@ -9,6 +9,7 @@ import {article} from "../../data/Article";
 import {ArticleCard} from "../../components/mainpage/ArticleCard";
 import {CSSTransition} from "react-transition-group";
 import {Dropdown} from "../../components/otherpage/dropdown/Dropdown";
+import { SideBar } from '../../components/sidebar/SideBar';
 
 export function OtherUserPage() {
     const {state} = useLocation(); //Временно useLocation
@@ -28,68 +29,7 @@ export function OtherUserPage() {
             {/* Медиа */}
 
             <div className="column is-2">
-                <h2 className={styles.mediaTitle}>Медиа</h2>
-                <nav>
-                    <NavLink
-                        className={({isActive}: { isActive: boolean }) =>
-                            isActive
-                                ? `${styles.categoryPopularActive}`
-                                : `${styles.categoryPopularInActive}`
-                        }
-                        to="/profile"
-                        end
-
-                        state={state}
-                    >
-                        Популярное {/*Временно state={state}*/}
-                    </NavLink>
-                    <NavLink
-                        className={({isActive}: { isActive: boolean }) =>
-                            isActive
-                                ? `${styles.categoryFreshActive}`
-                                : `${styles.categoryFreshInActive}`
-                        }
-                        to="/profile/other"
-                        end
-                    >
-                        Свежее
-                    </NavLink>
-                </nav>
-                {/* Сервисы */}
-
-                <h2 className={styles.servicesTitle}>Сервисы</h2>
-                <nav>
-                    <NavLink
-                        className={({isActive}: { isActive: boolean }) =>
-                            isActive
-                                ? `${styles.categoryRoutesActive}`
-                                : `${styles.categoryRoutesInActive}`
-                        }
-                        to="/"
-                        end
-
-                        onClick={(e) => {
-                            e.preventDefault() //Временно onClick
-                        }}
-                    >
-                        Маршруты
-                    </NavLink>
-                </nav>
-                {/* Доп. информация */}
-
-                <div className={styles.details}>
-                    <Link className={styles.advertisement} to="/advertisement">
-                        Заказать рекламу
-                    </Link>
-                    <div className={styles.otherBlock}>
-                        <Link className={styles.other} to="/project">
-                            О проекте
-                        </Link>
-                        <Link className={styles.other} to="/help">
-                            Помощь
-                        </Link>
-                    </div>
-                </div>
+                <SideBar />
             </div>
             {/* Подгрузка карточек со статьями */}
 
