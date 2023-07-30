@@ -1,48 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
 
-  font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
-body, html{
-  height: calc(100% + 80px);
-  background: #F2F2F2;
+body, html {
+    min-height: calc(100% + 200px);
+    background: #F2F2F2;
 }
 
 /* Анимация dropdown из модуля Header при помощи библиотеки react-transition-group*/
 
 .alert-enter {
-  opacity: 0;
+    opacity: 0;
 }
+
 .alert-enter-active {
-  opacity: 1;
-  transition: opacity 300ms;
+    opacity: 1;
+    transition: opacity 300ms;
 }
+
 .alert-exit {
-  opacity: 1;
+    opacity: 1;
 }
+
 .alert-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
+    opacity: 0;
+    transition: opacity 300ms;
 }
 
 .modal-enter {
-  opacity: 0;
+    opacity: 0;
 }
+
 .modal-enter-active {
-  opacity: 1;
-  transition: opacity 300ms;
+    opacity: 1;
+    transition: opacity 300ms;
 }
+
 .modal-exit {
-  opacity: 1;
+    opacity: 1;
 }
 
 .modal-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
+    opacity: 0;
+    transition: opacity 300ms;
 }
