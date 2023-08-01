@@ -8,6 +8,7 @@ import vk from '../../../../img/Icons_SignIn/VK.svg';
 import appleId from '../../../../img/Icons_SignIn/Apple.svg';
 
 import styles from './SignIn.module.css';
+import {useInput} from "../../../../hooks/validation/useInput";
 
 type createLoginRequest = {
     email: string;
@@ -16,6 +17,9 @@ type createLoginRequest = {
 
 export function SignIn() {
     const navigate = useNavigate();
+
+    const email = useInput('', {isEmpty: true});
+    const password = useInput('', {isEmpty: true, minLength: 6});
 
     const [isReady, setReady] = useState<boolean>(false);
     const [isEmail, setEmail] = useState<string>("");
@@ -60,6 +64,7 @@ export function SignIn() {
         }
     }, [isReady])
 
+
     return (
         //Блок входа
 
@@ -68,18 +73,36 @@ export function SignIn() {
 
             <form onSubmit={onSubmit} className={styles.authorizationBlock}>
                 <input
+                    onBlur={e => email.onBlur(e)}
+                    value={email.value}
                     className={styles.authorizationInput}
                     type="email"
                     placeholder="Почта"
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        setEmail(e.target.value);
+                        email.onChange(e);
+                    }}
+
                 />
+                {(email.isDirty && email.isEmpty) &&
+                    <div className={styles.errorMessage}>Поле не может быть пустым</div>}
                 <input
+                    onBlur={e => password.onBlur(e)}
+                    value={password.value}
                     className={styles.authorizationInput}
                     type="password"
                     placeholder="Пароль"
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        setPassword(e.target.value);
+                        password.onChange(e);
+                    }}
                 />
-                <button className={styles.authorizationButton} type="submit">
+                {(password.isDirty && password.isEmpty) &&
+                    <div className={styles.errorMessage}>Поле не может быть пустым</div>}
+                {(password.isDirty && password.minLengthError) &&
+                    <div className={styles.errorMessage}>Длина пароля от 6 символов</div>}
+                <button disabled={!email.inputValid || !password.inputValid} className={styles.authorizationButton}
+                        type="submit">
                     Войти
                 </button>
             </form>
