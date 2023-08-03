@@ -132,3 +132,9 @@
 .agreementLink:hover {
     color: var(--unnamed, #141414);
 }
+
+.errorMessage {
+    color: red;
+
+    margin-bottom: 4px;
+}
