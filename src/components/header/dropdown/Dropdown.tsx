@@ -1,4 +1,4 @@
-import {useRef, useEffect} from 'react';
+import {useEffect, useRef} from 'react';
 import {Link} from 'react-router-dom';
 
 import styles from './Dropdown.module.css';
@@ -39,9 +39,7 @@ export function Dropdown({setDropdown, setModalArticleState}: IDropdown) {
                 <img className={styles.dropdownImage} src={recordIcon} alt="record"/>
                 Запись
             </button>
-            <Link className={styles.dropdownLink} to="/" onClick={(e) => {
-                e.preventDefault() //Временно onClick
-            }}>
+            <Link className={styles.dropdownLink} to="/profile/map">
                 <img className={styles.dropdownImage} src={routeIcon} alt="route"/>
                 Маршрут
             </Link>
