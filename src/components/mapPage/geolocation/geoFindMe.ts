@@ -1,4 +1,4 @@
-export let center: any;
+export let center: any = [0, 0];
 
 function success(pos: any) {
     center = [pos.coords.longitude, pos.coords.latitude];
