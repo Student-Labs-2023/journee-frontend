@@ -1,16 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
-import {BlockNoteView, ReactSlashMenuItem, createReactBlockSpec, defaultReactSlashMenuItems, useBlockNote} from '@blocknote/react'
+import { useState, useEffect } from 'react';
+import {BlockNoteView, createReactBlockSpec, useBlockNote} from '@blocknote/react'
 
 import styles from './CreateArticle.module.css';
-import { Block, BlockNoteEditor, DefaultBlockSchema, PartialBlock, defaultBlockSchema, defaultProps } from '@blocknote/core';
-import axios from 'axios';
+import { defaultBlockSchema, defaultProps } from '@blocknote/core';
 import {v4 as uuidv4} from 'uuid'
 
 export function CreateArticle() {
-    /* Сохранение объекта с модальным окном */
-    const modalRef = useRef<HTMLDivElement>(null);
-
     useEffect(() => {
+        // eslint-disable-next-line eqeqeq
         if (localStorage.getItem("token") == undefined || localStorage.getItem("user_id") == undefined) {
             alert("Пожалуйста авторизуйтесь")
             window.location.replace("/")
@@ -41,26 +38,6 @@ export function CreateArticle() {
         ),
       });
 
-    const slashMenuItems = [
-        ...defaultReactSlashMenuItems,
-        new ReactSlashMenuItem<
-            DefaultBlockSchema & { map: typeof mapBlock }
-        >(
-            "Insert map",
-            (editor) => {
-                const currentBlock = editor.getTextCursorPosition().block;
-                
-                editor.insertBlocks([{
-                    type:"map",
-                    props:{}
-                }], currentBlock, "after");
-            },
-            ["map"],
-            "Other",
-            <div style={{height:"10px", aspectRatio:"1", backgroundColor:"red"}}/>
-        )
-    ]
-
     const editor = useBlockNote({
         theme:"light",
         onEditorContentChange: (editor: any) => {
@@ -72,7 +49,6 @@ export function CreateArticle() {
             saveBlocksAsMarkdown();
         },
         blockSchema:{...defaultBlockSchema, map:mapBlock, image:imgBlock},
-        // slashCommands:slashMenuItems, <- for next sprint
     })
 
     function HandleSubmit() {
@@ -114,6 +90,7 @@ export function CreateArticle() {
 
         const file = e.dataTransfer.files[0]
 
+        // eslint-disable-next-line eqeqeq
         if (file == undefined) {return}
 
         const fr = new FileReader()
