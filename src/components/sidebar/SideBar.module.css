@@ -1,9 +1,3 @@
-/* Главный блок (накосячил с сеткой) */
-
-.main {
-    padding-top: 20px;
-}
-
 .mediaTitle {
     color: var(--unnamed, #141414);
 
@@ -17,12 +11,10 @@
     line-height: 120%;
 }
 
-/* Популярное */
-
 .categoryPopularActive {
     display: block;
 
-    padding: 7px 15px 8px 37px;
+    padding: 8px 15px 8px 38px;
 
     margin-top: 4px;
 
@@ -35,7 +27,7 @@
 
     background-image: url('../../img/Icons_BokovoeMenu/Fire_ActiveBokovoe_Menu.svg');
     background-repeat: no-repeat;
-    background-position: 11px 7px;
+    background-position: 12px 8px;
 
     height: 37px;
     width: 155px;
@@ -68,7 +60,7 @@
 .categoryFreshActive {
     display: block;
 
-    padding: 8px 15px 8px 38px;
+    padding: 8px 15px 8px 36px;
 
     margin-top: 4px;
 
@@ -81,7 +73,7 @@
 
     background-image: url('../../img/Icons_BokovoeMenu/New_ActiveBokovoe_Menu.svg');
     background-repeat: no-repeat;
-    background-position: 12px 8px;
+    background-position: 12px 9px;
 
     height: 37px;
     width: 155px;
@@ -92,22 +84,23 @@
 .categoryFreshInActive {
     display: block;
 
-    padding: 7px 15px 8px 37px;
+    padding: 8px 15px 8px 38px;
 
-    margin-top: 6px;
+    margin-top: 4px;
 
     font-size: 17px;
     line-height: normal;
 
     background-image: url('../../img/Icons_BokovoeMenu/New_DefaultBokovoe_Menu.svg');
     background-repeat: no-repeat;
-    background-position: 13px 8px;
+    background-position: 14px 8px;
 
     height: 37px;
     width: 155px;
 
     color: var(--unnamed, #141414);
 }
+
 
 /* Заголовок сервисы */
 
@@ -176,7 +169,7 @@
 .details {
     position: fixed;
     left: 8.33%;
-    bottom: 0;
+    bottom: 40px;
     display: flex;
     flex-direction: column;
 }
@@ -209,8 +202,6 @@
 .other {
     display: block;
 
-    margin-bottom: 80px;
-
     color: rgba(20, 20, 20, 0.7);
     /* Link 1 */
     font-family: Inter;
@@ -227,182 +218,3 @@
 .other:hover {
     color: #141414;
 }
-
-@media (max-width: 1400px) {
-    .advertisement {
-        font-size: 16px;
-    }
-
-    .other {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 1300px) {
-    .advertisement {
-        font-size: 15px;
-    }
-
-    .other {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .advertisement {
-        font-size: 14px;
-    }
-
-    .other {
-        font-size: 14px;
-    }
-}
-
-
-.profile {
-    width: 100%;
-
-
-    margin-bottom: 40px;
-
-    padding: 24px;
-
-    border-radius: 6px;
-    border: 1px solid #D4D4D4;
-    background: #FFF;
-}
-
-.profileUser {
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 9px;
-    padding-left: 16px;
-}
-
-.profileBlock {
-    display: flex;
-    flex-direction: row;
-}
-
-.profileUserName {
-    color: #141414;
-    /* h2 headline */
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%; /* 28.8px */
-}
-
-.profileUserRating {
-    display: inline;
-
-    color: #4CAF50;
-    /* Numbers 2 */
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-
-    padding-right: 16px;
-}
-
-.profileUserSubs {
-    display: inline;
-
-    padding-right: 6px;
-}
-
-.profileUserSubsDisc {
-    display: inline;
-
-    color: rgba(20, 20, 20, 0.50);
-    /* Numbers 2 */
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.profileUserButton {
-    background: transparent;
-    border: 0px;
-
-    margin-top: 16px;
-
-    color: rgba(255, 147, 60, 0.70);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%; /* 20.8px */
-
-    transition: color ease 0.6s;
-}
-
-.profileUserButton:hover {
-    color: #FF933C;
-
-    transition: color ease 0.6s;
-}
-
-.profileSettings {
-    padding: 7px 7px 4px 7px;
-
-    background: transparent;
-
-    border-radius: 4px;
-    border: 1px solid #D4D4D4;
-
-    transition: background-color ease 0.6s;
-}
-
-.profileSettings:hover {
-    background: #f2f2f2;
-
-    transition: background-color ease 0.6s;
-}
-
-.article {
-    color: #141414;
-    /* h3 headline */
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.articleButton {
-    display: flex;
-    flex-direction: row;
-
-    background: transparent;
-
-    border-radius: 4px;
-    border: 1px solid #D4D4D4;
-    background: #FFF;
-
-    padding: 13px 26px 13px 26px;
-
-    transition: background-color ease 0.6s;
-}
-
-.articleButtonText {
-    color: #141414;
-    /* Button_2 */
-
-    padding-left: 6px;
-
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.articleButton:hover {
-    background: #f2f2f2;
-
-    transition: background-color ease 0.6s;
-}
-
-
-

@@ -56,7 +56,7 @@ export function DropdownProfile({setDropdown}: { setDropdown: () => void }) {
                 <img className={styles.dropdownImage} src={settingsIcon} alt="settingsIcon"/>
                 Настройки
             </Link>
-            <Link className={styles.dropdownLink} to="/">
+            <Link className={styles.dropdownLink} to="/" onClick={() => { localStorage.removeItem("token"); localStorage.removeItem("user_id"); window.location.reload(); } }>
                 <img className={styles.dropdownImage} src={outIcon} alt="outIcon"/>
                 Выйти
             </Link>

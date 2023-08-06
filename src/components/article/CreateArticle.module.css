@@ -1,0 +1,60 @@
+.main {
+    padding: 16px;
+
+    width: 100%;
+    height: calc(100vh - 150px);
+}
+
+.main :is(
+    h1,
+    h2,
+    h3
+) {
+    font-weight: bold;
+}
+.main h1 {font-size: 2em;}
+.main h2 {font-size: 1.5em;}
+.main h2 {font-size: 1.17em;}
+
+.main {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.main > input {
+    border: none;
+}
+
+.main > input {
+    border-radius: 16px;
+    background: none;
+}
+
+.Header {
+    font-size: 2rem;
+}
+
+.main > input {
+    background: none;
+}
+
+.main > div:nth-child(3) {flex: 1; overflow-y: auto;}
+.main > div:nth-child(3) > div {height: 100%;}
+
+.submit {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .75rem;
+}
+
+.submit > button {
+    color: white;
+    padding: .5rem 1rem;
+    background-color: #FF933C;
+    border: none;
+    border-radius: 6px;
+}

@@ -1,16 +1,12 @@
-import {NavLink, Link} from 'react-router-dom';
+import styles from './CreateArticlePage.module.css';
 
-import {ArticleCard} from '../../components/mainpage/ArticleCard';
-
-import styles from './RoutesPage.module.css';
-
-import {article} from '../../data/Article';
 import { SideBar } from '../../components/sidebar/SideBar';
+import { CreateArticle } from '../../components/article/CreateArticle';
 
-export function RoutesPage() {
+export default function CreateArticlePage() {
     return (
         // Главная страница
-        <div key="RoutesPage" className={`columns ${styles.main}`}>
+        <div key="FreshPage" className={`columns ${styles.main}`}>
             <div className="column is-1"></div>
             {/* Медиа */}
 
@@ -20,9 +16,7 @@ export function RoutesPage() {
             {/* Подгрузка карточек со статьями */}
 
             <div className="column is-6">
-                {article.map((prop) => (
-                    <ArticleCard props={prop}/>
-                ))}
+                <CreateArticle />
             </div>
             <div className="column is-2"></div>
             <div className="column is-1"></div>
