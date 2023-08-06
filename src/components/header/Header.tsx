@@ -14,6 +14,7 @@ import userIcon from '../../img/header/Usericons_header.svg';
 import {Dropdown} from './dropdown/Dropdown';
 import {Modal} from './modal/Modal';
 import {ModalArticle} from "./modalArticle/ModalArticel";
+import {useNotification} from '../../hooks/useNotification';
 
 //Шапка
 
@@ -39,6 +40,8 @@ export function Header() {
     const setArticleState = (): void => {
         setArticle(!article);
     };
+
+    const ShowNotification = useNotification()
 
     return (
         /* Шапка */
@@ -103,7 +106,7 @@ export function Header() {
                     <div className="column is-6">
                         <button
                             className={styles.userNotification}
-                            onClick={() => console.log('Открыть уведомления')}
+                            onClick={() => ShowNotification("Простите, эта функция ещё не внедрена")}
                         >
                             <img src={notificationIcon} alt="notifications"/>
                         </button>

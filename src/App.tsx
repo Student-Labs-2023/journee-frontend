@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {PopularPage} from './pages/popularPage/PopularPage';
 import {FreshPage} from './pages/freshPage/FreshPage';

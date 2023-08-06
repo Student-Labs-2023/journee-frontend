@@ -16,6 +16,7 @@ import {Dropdown} from '../header/dropdown/Dropdown';
 import {Modal} from '../header/modal/Modal';
 import {ModalArticle} from "../header/modalArticle/ModalArticel";
 import {DropdownProfile} from "./dropdown/DropdownProfile";
+import {useNotification} from '../../hooks/useNotification';
 
 //Шапка
 
@@ -46,6 +47,8 @@ export function ProfileHeader() {
     const setDropdownProfileState = (): void => {
         setDropdownProfile(!dropdownProfile);
     };
+
+    const ShowNotification = useNotification()
 
     return (
         /* Шапка */
@@ -110,7 +113,7 @@ export function ProfileHeader() {
                     <div className="column is-6">
                         <button
                             className={styles.userNotification}
-                            onClick={() => console.log('Открыть уведомления')}
+                            onClick={() => ShowNotification("Простите, эта функция ещё не внедрена")}
                         >
                             <img src={notificationIcon} alt="notifications"/>
                         </button>
