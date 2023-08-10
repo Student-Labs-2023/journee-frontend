@@ -4,8 +4,10 @@ import {BlockNoteView, createReactBlockSpec, useBlockNote} from '@blocknote/reac
 import styles from './CreateArticle.module.css';
 import { defaultBlockSchema, defaultProps } from '@blocknote/core';
 import {v4 as uuidv4} from 'uuid'
+import { useNotification } from '../../hooks/useNotification';
 
 export function CreateArticle() {
+    const showNotification = useNotification()
     useEffect(() => {
         // eslint-disable-next-line eqeqeq
         if (localStorage.getItem("token") == undefined || localStorage.getItem("user_id") == undefined) {
@@ -17,6 +19,7 @@ export function CreateArticle() {
     const [Markdown, setMarkdown] = useState("")
     const [Header, setHeader] = useState("Header")
     const [Description, setDescription] = useState("Description")
+    const [Pic, setPic] = useState("#")
 
     const mapBlock = createReactBlockSpec({
         type: "map",
@@ -42,9 +45,7 @@ export function CreateArticle() {
         theme:"light",
         onEditorContentChange: (editor: any) => {
             const saveBlocksAsMarkdown = async () => {
-              const markdown: string = 
-                await editor.blocksToMarkdown(editor.topLevelBlocks);
-              setMarkdown(markdown);
+                setMarkdown(document.querySelector(`div.${styles.main} > div:nth-child(5) > div`)?.innerHTML||"")
             };
             saveBlocksAsMarkdown();
         },
@@ -52,6 +53,7 @@ export function CreateArticle() {
     })
 
     function HandleSubmit() {
+        showNotification("Статья опубликована")
         console.log(Markdown)
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
@@ -71,9 +73,10 @@ export function CreateArticle() {
                 method:"POST",
                 body:JSON.stringify({
                     author_id:localStorage.getItem("user_id"),
-                    article_url:"http://178.170.192.87/storage/"+result.Key,
+                    article_url:"http://178.170.192.87/static/"+result.Key,
                     header:Header,
-                    description:Description
+                    description:Description,
+                    icon_url:Pic
                 }),
                 headers:{
                     "Content-Type":"application/json",
@@ -87,14 +90,7 @@ export function CreateArticle() {
         .catch(error => console.error(error));
     }
 
-    function FileDrop(e:React.DragEvent) {
-        e.preventDefault()
-
-        const file = e.dataTransfer.files[0]
-
-        // eslint-disable-next-line eqeqeq
-        if (file == undefined) {return}
-
+    function BucketUrl(file:File, callback:(url:string) => void) {
         const fr = new FileReader()
 
         fr.onload = (e) => {
@@ -111,21 +107,53 @@ export function CreateArticle() {
                 body: formdata,
             }).then(response => response.json())
             .then(result => {
-                if (editor == null) {return}
-                const currentBlock = editor.getTextCursorPosition().block;
-                
-                editor.insertBlocks([{
-                    type:"image",
-                    props:{url:"http://178.170.192.87/storage/"+result.Key}
-                }], currentBlock, "after");
+                fetch("http://178.170.192.87/static/"+result.Key, {
+                    headers:{
+                        Authorization:`Bearer ${localStorage.getItem("token")}`
+                    }
+                }).then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob)
+                    callback(url)
+                })
+                .catch(console.error)
             })
         }
         fr.readAsArrayBuffer(file)
     }
 
+    function FileDrop(e:React.DragEvent) {
+        e.preventDefault()
+
+        const file = e.dataTransfer.files[0]
+
+        // eslint-disable-next-line eqeqeq
+        if (file == undefined) {return}
+
+        BucketUrl(file, (url) => {
+            if (editor == null) {return}
+            const currentBlock = editor.getTextCursorPosition().block;
+
+                    
+            editor.insertBlocks([{
+                type:"image",
+                props:{url}
+            }], currentBlock, "after");
+        })
+    }
+
+    function updateImage(e:any) {
+        e.preventDefault()
+        BucketUrl(e.target.files[0], (url) => {
+            setPic(url)
+        })
+    }
+
     return <div className={styles.main} onDrop={FileDrop}>
             <input type="text" className={styles.Header} value={Header} onChange={e => setHeader(e.target.value)} />
             <input type="text" value={Description} onChange={e => setDescription(e.target.value)} />
+            <input type="file" onChange={updateImage} accept='.png, .jpg, .jpeg' />
+            <img src={Pic} alt="Pic" />
             <BlockNoteView editor={editor} />
             <div className={styles.submit}>
                 <p>Потоки для публикации</p>

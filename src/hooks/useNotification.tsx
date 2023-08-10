@@ -3,7 +3,7 @@ import style from "../styles/Notification.module.css"
 
 export function useNotification() {
     const [List, setList] = useContext(NotificationContext) as [string[], React.Dispatch<React.SetStateAction<string[]>>]
-    return (data:string, delay:number = 7500) => {
+    return (data:string, delay:number = 3000) => {
         setList((e) => [...e, data])
         setTimeout(() => {
             setList((e) => e.slice(1))

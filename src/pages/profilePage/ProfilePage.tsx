@@ -7,10 +7,12 @@ import settingsIcon from '../../img/profilePage/fi-rs-settings.svg'
 import createArticleIcon from '../../img/profilePage/fi-rs-pencil.svg'
 import { useEffect, useState } from 'react';
 import { SideBar } from '../../components/sidebar/SideBar';
+import { useNotification } from '../../hooks/useNotification';
 
 export function ProfilePage() {
     const {state} = useLocation();
     const [User, setUser] = useState({} as any)
+    const showNotification = useNotification()
     
     useEffect(() => {
         setUser(User)
@@ -46,7 +48,7 @@ export function ProfilePage() {
                             <button className={styles.profileUserButton}>Изменить описание</button>
                         </div>
                         <div className="column is-2 has-text-right">
-                            <button className={styles.profileSettings}>
+                            <button onClick={() => showNotification("Простите, эта функция ещё не внедрена")} className={styles.profileSettings}>
                                 <img src={settingsIcon} alt={settingsIcon}/>
                             </button>
                         </div>
@@ -63,7 +65,7 @@ export function ProfilePage() {
                         <div className="column is-6">
                             <button className={styles.articleButton}>
                                 <img src={createArticleIcon} alt={createArticleIcon}/>
-                                <p className={styles.articleButtonText}>Создать статью</p>
+                                <p className={styles.articleButtonText} onClick={() => window.location.replace("/article/create")}>Создать статью</p>
                             </button>
                         </div>
                     </div>

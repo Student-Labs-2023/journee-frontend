@@ -39,8 +39,8 @@
     background: none;
 }
 
-.main > div:nth-child(3) {flex: 1; overflow-y: auto;}
-.main > div:nth-child(3) > div {height: 100%;}
+.main > div:nth-child(5) {outline: 1px solid black; border-radius: 16px; flex: 1; overflow-y: auto;}
+.main > div:nth-child(5) > div {height: 100%;}
 
 .submit {
     font-size: 1.5rem;

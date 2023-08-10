@@ -1,5 +1,7 @@
 /* Главный блок (накосячил с сеткой) */
 
+.ArticleList {overflow-y: auto; overflow-x: hidden; height: 86vh;}
+
 .main {
     padding-top: 20px;
 }

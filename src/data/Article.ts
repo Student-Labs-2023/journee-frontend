@@ -11,7 +11,7 @@ export async function get() {
             "apikey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q"
         }
     })).json()).map((el:any) => {
-        console.log(el)
+        console.log(el.icon_url)
         return {
             imgAuthor: '../img/data/author.png',
             autor: 'Иванов Петр',
@@ -23,7 +23,7 @@ export async function get() {
                 el.header,
             textArticle:
                 el.description,
-            imgArticle: '../img/data/article.png',
+            imgArticle: el.icon_url||'../img/data/article.png',
     
             likes: 256,
             comments: 20,

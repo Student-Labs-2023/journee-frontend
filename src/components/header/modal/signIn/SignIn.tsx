@@ -9,6 +9,7 @@ import appleId from '../../../../img/Icons_SignIn/Apple.svg';
 
 import styles from './SignIn.module.css';
 import {useInput} from "../../../../hooks/validation/useInput";
+import { useNotification } from "../../../../hooks/useNotification";
 
 type createLoginRequest = {
     email: string;
@@ -43,7 +44,8 @@ export function SignIn() {
             localStorage.setItem("user_id", (data as any).user.id)
             console.log(status);
 
-            return navigate('/profile', {state: {data}});
+            navigate('/profile', {state: {data}});
+            return window.location.reload()
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 console.log('error message: ', error.message);
@@ -63,6 +65,8 @@ export function SignIn() {
             setReady(false);
         }
     }, [isReady])
+
+    const showNotification = useNotification()
 
 
     return (
@@ -110,19 +114,19 @@ export function SignIn() {
 
             <div className={styles.authorizationWidgets}>
                 <button
-                    onClick={() => console.log('Вход через Google')}
+                    onClick={() => showNotification("Простите, эта функция ещё не внедрена")}
                     className={`${styles.widgets} ${styles.widgetsGoogle}`}
                 >
                     <img src={google} alt="googleSignIn"/>
                 </button>
                 <button
-                    onClick={() => console.log('Вход через VK')}
+                    onClick={() => showNotification("Простите, эта функция ещё не внедрена")}
                     className={`${styles.widgets} ${styles.widgetsVK}`}
                 >
                     <img src={vk} alt="VKSignIn"/>
                 </button>
                 <button
-                    onClick={() => console.log('Вход через AppleID')}
+                    onClick={() => showNotification("Простите, эта функция ещё не внедрена")}
                     className={`${styles.widgets} ${styles.widgetsApple}`}
                 >
                     <img src={appleId} alt="AppleIDSignIn"/>

@@ -8,6 +8,7 @@ import appleId from '../../../../img/Icons_SignIn/Apple.svg';
 
 import styles from './Registration.module.css';
 import {useInput} from "../../../../hooks/validation/useInput";
+import { useNotification } from "../../../../hooks/useNotification";
 
 const apiKey: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE'
 
@@ -29,6 +30,8 @@ export function Registration() {
     const [isEmail, setEmail] = useState<string>("");
     const [isPassword, setPassword] = useState<string>("");
 
+    const showNotification = useNotification()
+
     const onSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
 
@@ -39,21 +42,17 @@ export function Registration() {
         const {data, status} = await axios.post<createRegisterRequest>(
             'http://178.170.192.87/auth/v1/signup', // 👈 ❗️❗️ URL для регистрации замени в ковычках, ответ выводится в консоль
             {
-                email: isEmail, password: isPassword, data: {
-                    fullName: isFullName,
-                }
+                email: isEmail, password: isPassword
             },
             {
                 headers: {
-                    "Authorization": `Bearer ${apiKey}`,
                     "apikey": apiKey,
                 }
             }
         );
-
+        
+        showNotification("Проверьте почту");
         console.log(JSON.stringify(data, null, 4));
-        localStorage.setItem("token", (data as any).access_token)
-        localStorage.setItem("user_id", (data as any).user.id)
         console.log(status);
 
         return navigate('/profile', {state: {data}});
@@ -125,19 +124,19 @@ export function Registration() {
 
             <div className={styles.authorizationWidgets}>
                 <button
-                    onClick={() => console.log('Вход через Google')}
+                    onClick={() => showNotification("Простите, эта функция ещё не внедрена")}
                     className={`${styles.widgets} ${styles.widgetsGoogle}`}
                 >
                     <img src={google} alt="googleSignIn"/>
                 </button>
                 <button
-                    onClick={() => console.log('Вход через VK')}
+                    onClick={() => showNotification("Простите, эта функция ещё не внедрена")}
                     className={`${styles.widgets} ${styles.widgetsVK}`}
                 >
                     <img src={vk} alt="VKSignIn"/>
                 </button>
                 <button
-                    onClick={() => console.log('Вход через AppleID')}
+                    onClick={() => showNotification("Простите, эта функция ещё не внедрена")}
                     className={`${styles.widgets} ${styles.widgetsApple}`}
                 >
                     <img src={appleId} alt="AppleIDSignIn"/>
