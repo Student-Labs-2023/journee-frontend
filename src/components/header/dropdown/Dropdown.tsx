@@ -43,6 +43,10 @@ export function Dropdown({setDropdown, setModalArticleState}: IDropdown) {
                 <img className={styles.dropdownImage} src={routeIcon} alt="route"/>
                 Маршрут
             </Link>
+            <Link className={styles.dropdownLink} to="/profile/create">
+                <img className={styles.dropdownImage} src={routeIcon} alt="route"/>
+                Другое
+            </Link>
         </div>
     );
 }

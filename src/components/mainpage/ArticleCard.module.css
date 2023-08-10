@@ -6,6 +6,12 @@
     border-radius: 6px;
     border: 1px solid #d4d4d4;
     background: #fff;
+
+    margin-bottom: 20px;
+}
+
+.articleWindow:nth-child(1) {
+    margin-top: 8px;
 }
 
 /* Блок автора */
