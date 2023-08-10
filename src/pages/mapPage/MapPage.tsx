@@ -14,9 +14,9 @@ import styles from './MapPage.module.css';
 export function MapPage() {
     geoFindMe();
 
-    useEffect(() => {
-        load().then((mapglAPI) => {
-            const map = new mapglAPI.Map('map-container', {
+    useEffect((): void => {
+        load().then((mapglAPI): void => {
+            const map: any = new mapglAPI.Map('map-container', {
                 center: center,
                 zoom: 13,
                 key: 'dab69d26-f8a0-4c36-b1eb-3b23f0b85683',
