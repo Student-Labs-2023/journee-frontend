@@ -33,12 +33,10 @@ export function Dropdown({setDropdown, setModalArticleState}: IDropdown) {
     return (
         //Dropdown меню
         <div ref={dropdownRef} className={styles.dropdown}>
-            <button className={styles.dropdownButton} onClick={() => {
-                window.location.replace("/article/create")
-            }}>
+            <Link to="/article/create" className={styles.dropdownButton}>
                 <img className={styles.dropdownImage} src={recordIcon} alt="record"/>
                 Запись
-            </button>
+            </Link>
             <Link className={styles.dropdownLink} to="/profile/map">
                 <img className={styles.dropdownImage} src={routeIcon} alt="route"/>
                 Маршрут
