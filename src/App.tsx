@@ -8,6 +8,7 @@ import {ProfilePage} from "./pages/profilePage/ProfilePage";
 import {OtherUserPage} from "./pages/otherUserPage/OtherUserPage";
 import CreateArticlePage from './pages/createArticle/CreateArticlePage';
 import {MapPage} from "./pages/mapPage/MapPage";
+import {CreateRoutePage} from "./pages/createRoutePage/CreateRoutePage";
 
 function App() {
     return (
@@ -21,7 +22,7 @@ function App() {
                     <Route path="/profile/other" element={<OtherUserPage/>}/>
                     <Route path="/article/create" element={<CreateArticlePage/>}/>
                     <Route path="/profile/map" element={<MapPage/>}/>
-                    <Route path="/article/create" element={<CreateArticlePage/>}/>
+                    <Route path="/profile/create" element={<CreateRoutePage/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

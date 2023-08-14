@@ -27,9 +27,11 @@ export function FreshPage() {
             {/* Подгрузка карточек со статьями */}
 
             <div className="column is-6">
+                <div className={styles.ArticleList}>
                 {Articles.map((prop, i) => (
                     <ArticleCard props={prop} key={i}/>
                 ))}
+                </div>
             </div>
             <div className="column is-2"></div>
             <div className="column is-1"></div>

@@ -11,7 +11,7 @@ export default function CreateArticlePage() {
             {/* Медиа */}
 
             <div className="column is-2">
-                <SideBar />
+                {/* <SideBar /> */}
             </div>
             {/* Подгрузка карточек со статьями */}
 
