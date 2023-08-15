@@ -33,7 +33,7 @@ export function Dropdown({setDropdown, setModalArticleState}: IDropdown) {
     return (
         //Dropdown меню
         <div ref={dropdownRef} className={styles.dropdown}>
-            <Link to="/article/create" className={styles.dropdownButton}>
+            <Link to="/article/create" className={styles.dropdownLink}>
                 <img className={styles.dropdownImage} src={recordIcon} alt="record"/>
                 Запись
             </Link>

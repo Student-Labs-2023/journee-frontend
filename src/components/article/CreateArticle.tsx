@@ -107,16 +107,7 @@ export function CreateArticle() {
                 body: formdata,
             }).then(response => response.json())
             .then(result => {
-                fetch("http://178.170.192.87/static/"+result.Key, {
-                    headers:{
-                        Authorization:`Bearer ${localStorage.getItem("token")}`
-                    }
-                }).then(response => response.blob())
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob)
-                    callback(url)
-                })
-                .catch(console.error)
+                callback("http://178.170.192.87/static/"+result.Key)
             })
         }
         fr.readAsArrayBuffer(file)

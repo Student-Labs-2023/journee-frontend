@@ -15,7 +15,17 @@ export function ProfilePage() {
     const showNotification = useNotification()
     
     useEffect(() => {
-        setUser(User)
+        fetch(`http://178.170.192.87/rest/v1/users?id=eq.${localStorage.getItem("user_id")}`, {
+            method:"GET",
+            headers:{
+                apikey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q",
+                "Accept-Profile":"auth"
+            }
+        }).then(response => response.json())
+        .then(user => {
+            setUser(user[0])
+        })
+        .catch(console.error)
         // fetch user by token/id from localstorage
     }, [])
 
@@ -37,7 +47,7 @@ export function ProfilePage() {
                             <div className={styles.profileBlock}>
                                 <img src={profileIcon} alt={profileIcon}/>
                                 <div className={styles.profileUser}>
-                                    <p className={styles.profileUserName}>{User?.user_metadata?.fullName}</p>
+                                    <p className={styles.profileUserName}>{User?.raw_user_meta_data?.fullName}</p>
                                     <div>
                                         <p className={styles.profileUserRating}>+ 0</p>
                                         <strong className={styles.profileUserSubs}>0</strong>

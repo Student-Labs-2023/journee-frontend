@@ -39,7 +39,7 @@
     background: none;
 }
 
-.main > div:nth-child(5) {outline: 1px solid black; border-radius: 16px; flex: 1; overflow-y: auto;}
+.main > div:nth-child(5) {background-color: white; border-radius: 16px; flex: 1; overflow-y: auto;}
 .main > div:nth-child(5) > div {height: 100%;}
 
 .submit {

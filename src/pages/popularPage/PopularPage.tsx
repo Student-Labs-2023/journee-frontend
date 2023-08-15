@@ -28,12 +28,10 @@ export function PopularPage() {
             </div>
             {/* Подгрузка карточек со статьями */}
 
-            <div className="column is-6">
-                <div className={styles.ArticleList}>
+            <div className={`column is-6 ${styles.scroll}`}>
                 {Articles.map((prop) => (
                     <ArticleCard props={prop}/>
                 ))}
-                </div>
             </div>
 
             <div className="column is-2"></div>
