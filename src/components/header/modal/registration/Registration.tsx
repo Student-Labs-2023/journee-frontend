@@ -42,7 +42,11 @@ export function Registration() {
         const {data, status} = await axios.post<createRegisterRequest>(
             'http://178.170.192.87/auth/v1/signup', // 👈 ❗️❗️ URL для регистрации замени в ковычках, ответ выводится в консоль
             {
-                email: isEmail, password: isPassword
+                email: isEmail,
+                password: isPassword,
+                data: {
+                    fullName: isFullName,
+                }
             },
             {
                 headers: {
