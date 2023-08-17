@@ -3,7 +3,7 @@
 import {Article} from '../interface/Article';
 
 export async function get() {
-    return (await (await fetch("http://178.170.192.87/rest/v1/articles", {
+    return (await (await fetch("http://178.170.192.87/rest/v1/rpc/get", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -11,22 +11,23 @@ export async function get() {
         }
     })).json()).map((el: any) => {
         console.log(el)
-        return {
+        let res =  {
             imgAuthor: '../img/data/author.png',
-            autor: 'Иванов Петр',
+            autor: JSON.parse(el.author_name).fullName||'Иванов Петр',
             city: 'Алтай',
             category: 'Путешествия',
-            time: 5,
+            // @ts-ignore
+            time: Math.floor((Date.now() - new Date(el.date_posted.replace(" ", "T")+"Z"))/(3.6*10**6)),
 
-            titleArticle:
-            el.header,
-            textArticle:
-                el.description,
-            imgArticle: el.icon_url||'../img/data/article.png',
+            titleArticle:el.header,
+            textArticle:el.description,
+            imgArticle:(el.thumbnail_url === "#" ? '../img/data/article.png' : el.thumbnail_url),
     
             likes: 256,
             comments: 20,
         }
+        console.log(res)
+        return res
     })
 }
 

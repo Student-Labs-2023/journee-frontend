@@ -21,26 +21,54 @@
     gap: 1rem;
     flex-direction: column;
 }
-
-.main > input {
-    border: none;
+.inputs {
+    gap: 1rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-areas: 
+        "🟥 🟨"
+        "🟩 🟨"
+    ;
 }
-
-.main > input {
+.inputs > input {
+    border: none;
     border-radius: 16px;
     background: none;
 }
 
 .Header {
     font-size: 2rem;
+    grid-area: 🟥;
 }
 
-.main > input {
-    background: none;
+.Description {
+    grid-area: 🟩;
 }
 
-.main > div:nth-child(5) {background-color: white; border-radius: 16px; flex: 1; overflow-y: auto;}
-.main > div:nth-child(5) > div {height: 100%;}
+.HeaderImage {
+    /* aspect-ratio: 1920/1080; */
+    height: 76px;
+    outline: 1px solid black;
+    align-self: center;
+    grid-area: 🟨;
+}
+
+.inputs > .FileInput {
+    display: none;
+}
+
+.editor {
+    flex: 1;
+    display: flex;
+}
+.editor > div {background-color: white; border-radius: 16px; flex: 1; overflow-y: auto;}
+.editor > div > div {height: 100%;}
+
+.editor img {
+    max-width: 50%;
+    max-height: 240px;
+    margin-left: 1.5rem;
+}
 
 .submit {
     font-size: 1.5rem;

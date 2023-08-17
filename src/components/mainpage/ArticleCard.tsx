@@ -1,11 +1,10 @@
 import {Link} from 'react-router-dom';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {CSSTransition} from 'react-transition-group';
 
 import {Article} from '../../interface/Article';
 
 import detailsIcon from '../../img/article/fi-rr-menu-dots.svg';
-import imgArticle from '../../img/data/article.png';
 import imgAuthor from '../../img/data/author.png';
 
 import styles from './ArticleCard.module.css';
@@ -24,6 +23,20 @@ export function ArticleCard({props}: ArticleProps) {
     const [comment, setComment] = useState<boolean>(false);
     const [saved, setSaved] = useState<boolean>(false);
     /* Состояние dropdown меню*/
+    const [imgArticle, setImgArticle] = useState<string>("");
+    useEffect(() => {
+        fetch(props.imgArticle, {
+            method:"GET",
+            headers:{
+                "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                "apikey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q"
+            }
+        }).then(response => response.blob())
+        .then(blob => {
+            setImgArticle(URL.createObjectURL(blob))
+        })
+        .catch(console.error)
+    }, [])
 
     const [dropdown, setDropdown] = useState<boolean>(false);
 
