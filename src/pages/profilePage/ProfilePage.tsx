@@ -1,31 +1,39 @@
-import {NavLink, Link, useLocation} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 
 import styles from './ProfilePage.module.css';
 
 import profileIcon from '../../img/profilePage/Ellipse 6 (1).png'
 import settingsIcon from '../../img/profilePage/fi-rs-settings.svg'
 import createArticleIcon from '../../img/profilePage/fi-rs-pencil.svg'
-import { useEffect, useState } from 'react';
-import { SideBar } from '../../components/sidebar/SideBar';
-import { useNotification } from '../../hooks/useNotification';
+import {useEffect, useState} from 'react';
+import {SideBar} from '../../components/sidebar/SideBar';
+import {useNotification} from '../../hooks/useNotification';
+import {CSSTransition} from "react-transition-group";
+import {ProfileModal} from "../../components/profilePage/modal/ProfileModal";
 
 export function ProfilePage() {
     const {state} = useLocation();
     const [User, setUser] = useState({} as any)
     const showNotification = useNotification()
-    
+
+    const [modal, setModal] = useState(false);
+
+    function setModalWindow(): void {
+        setModal(!modal);
+    }
+
     useEffect(() => {
         fetch(`http://178.170.192.87/rest/v1/users?id=eq.${localStorage.getItem("user_id")}`, {
-            method:"GET",
-            headers:{
-                apikey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q",
-                "Accept-Profile":"auth"
+            method: "GET",
+            headers: {
+                apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q",
+                "Accept-Profile": "auth"
             }
         }).then(response => response.json())
-        .then(user => {
-            setUser(user[0])
-        })
-        .catch(console.error)
+            .then(user => {
+                setUser(user[0])
+            })
+            .catch(console.error)
         // fetch user by token/id from localstorage
     }, [])
 
@@ -36,7 +44,7 @@ export function ProfilePage() {
             {/* Медиа */}
 
             <div className="column is-2">
-                <SideBar />
+                <SideBar/>
             </div>
             {/* Подгрузка карточек со статьями */}
 
@@ -56,9 +64,14 @@ export function ProfilePage() {
                                 </div>
                             </div>
                             <button className={styles.profileUserButton}>Изменить описание</button>
+                            <button onClick={() => {
+                                setModal(!modal)
+                            }} className={styles.profileUserButton}>Изменить данные профиля
+                            </button>
                         </div>
                         <div className="column is-2 has-text-right">
-                            <button onClick={() => showNotification("Простите, эта функция ещё не внедрена")} className={styles.profileSettings}>
+                            <button onClick={() => showNotification("Простите, эта функция ещё не внедрена")}
+                                    className={styles.profileSettings}>
                                 <img src={settingsIcon} alt={settingsIcon}/>
                             </button>
                         </div>
@@ -75,7 +88,8 @@ export function ProfilePage() {
                         <div className="column is-6">
                             <button className={styles.articleButton}>
                                 <img src={createArticleIcon} alt={createArticleIcon}/>
-                                <p className={styles.articleButtonText} onClick={() => window.location.replace("/article/create")}>Создать статью</p>
+                                <p className={styles.articleButtonText}
+                                   onClick={() => window.location.replace("/article/create")}>Создать статью</p>
                             </button>
                         </div>
                     </div>
@@ -83,6 +97,13 @@ export function ProfilePage() {
             </div>
             <div className="column is-2"></div>
             <div className="column is-1"></div>
+
+            <CSSTransition in={modal}
+                           classNames="modal"
+                           timeout={300}
+                           unmountOnExit>
+                <ProfileModal setModalState={setModalWindow}/>
+            </CSSTransition>
         </div>
     );
 }
