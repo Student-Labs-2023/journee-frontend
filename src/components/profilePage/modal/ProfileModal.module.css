@@ -1,0 +1,119 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background: rgba(20, 20, 20, 0.4);
+}
+
+.modal {
+    position: absolute;
+
+    z-index: 2;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    left: 0px;
+    right: 0px;
+    top: 120px;
+
+    padding: 32px;
+
+    width: 374px;
+
+    border-radius: 6px;
+    border: 1px solid #d4d4d4;
+    background: #fff;
+
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+
+    color: black;
+
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+
+    margin-bottom: 12px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    height: 45px;
+
+    padding-left: 16px;
+
+    border-radius: 6px;
+    border: 1px solid #d4d4d4;
+    background: #fff;
+
+    color: rgba(20, 20, 20);
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    outline: none;
+
+    margin-bottom: 12px;
+
+    transition: border ease 0.6s;
+}
+
+.input:focus {
+    border: 1px solid #aaa;
+
+    transition: border ease 0.6s;
+}
+
+::placeholder {
+    color: rgba(20, 20, 20, 0.5);
+}
+
+.button {
+    height: 45px;
+
+    border: 0px;
+
+    border-radius: 6px;
+    background: rgba(255, 147, 60, 0.7);
+
+    color: #fff;
+
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    transition: background ease 0.6s;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #ff933c;
+    transition: background ease 0.6s;
+}
+
+.errorMessage {
+    color: red;
+
+    margin-bottom: 4px;
+}
+
