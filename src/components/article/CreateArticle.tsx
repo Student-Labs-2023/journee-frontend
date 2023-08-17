@@ -5,6 +5,7 @@ import styles from './CreateArticle.module.css';
 import { defaultBlockSchema, defaultProps } from '@blocknote/core';
 import {v4 as uuidv4} from 'uuid'
 import { useNotification } from '../../hooks/useNotification';
+import defaultHeaderImg from '../../img/data/article.png'
 
 export function CreateArticle() {
     const showNotification = useNotification()
@@ -19,8 +20,8 @@ export function CreateArticle() {
     const [Markdown, setMarkdown] = useState("")
     const [Header, setHeader] = useState("Header")
     const [Description, setDescription] = useState("Description")
-    const [Pic, setPic] = useState("#")
-    const [PicBlob, setPicBlob] = useState("#")
+    const [Pic, setPic] = useState("http://localhost:3001/static/media/article.898c0e0cf1fa1e08ea11.png")
+    const [PicBlob, setPicBlob] = useState(defaultHeaderImg)
 
     useEffect(() => {
         if (!Pic.startsWith("http://178.170.192.87/static/")) return;
@@ -60,7 +61,7 @@ export function CreateArticle() {
         theme:"light",
         onEditorContentChange: (editor: any) => {
             const saveBlocksAsMarkdown = async () => {
-                setMarkdown(document.querySelector(`div.${styles.main} > div:nth-child(5) > div`)?.innerHTML||"")
+                setMarkdown(JSON.stringify(editor.topLevelBlocks))
             };
             saveBlocksAsMarkdown();
         },

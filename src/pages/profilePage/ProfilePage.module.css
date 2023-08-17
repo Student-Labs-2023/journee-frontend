@@ -285,6 +285,8 @@
     flex-direction: row;
 }
 
+.profileBlock img {width: 61px;}
+
 .profileUserName {
     color: #141414;
     /* h2 headline */

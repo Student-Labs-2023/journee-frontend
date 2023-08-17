@@ -73,9 +73,6 @@ export function OtherUserPage() {
                         </div>
                     </div>
                 </div>
-                {article.map((prop) => (
-                    <ArticleCard props={prop}/>
-                ))}
             </div>
             <div className="column is-2"></div>
             <div className="column is-1"></div>

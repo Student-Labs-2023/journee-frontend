@@ -12,7 +12,7 @@ export async function get() {
     })).json()).map((el: any) => {
         console.log(el)
         let res =  {
-            imgAuthor: '../img/data/author.png',
+            imgAuthor: '../img/user_icon.png',
             autor: JSON.parse(el.author_name).fullName||'Иванов Петр',
             city: 'Алтай',
             category: 'Путешествия',
@@ -25,6 +25,7 @@ export async function get() {
     
             likes: 256,
             comments: 20,
+            article_url:el.article_url
         }
         console.log(res)
         return res

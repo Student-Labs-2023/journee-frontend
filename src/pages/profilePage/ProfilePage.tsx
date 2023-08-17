@@ -2,7 +2,7 @@ import {NavLink, Link, useLocation} from 'react-router-dom';
 
 import styles from './ProfilePage.module.css';
 
-import profileIcon from '../../img/profilePage/Ellipse 6 (1).png'
+import profileIcon from '../../img/user_icon.png'
 import settingsIcon from '../../img/profilePage/fi-rs-settings.svg'
 import createArticleIcon from '../../img/profilePage/fi-rs-pencil.svg'
 import { useEffect, useState } from 'react';

@@ -5,7 +5,7 @@ import {CSSTransition} from 'react-transition-group';
 import {Article} from '../../interface/Article';
 
 import detailsIcon from '../../img/article/fi-rr-menu-dots.svg';
-import imgAuthor from '../../img/data/author.png';
+import imgAuthor from '../../img/user_icon.png';
 
 import styles from './ArticleCard.module.css';
 import {Dropdown} from './dropdown/Dropdown';
@@ -13,10 +13,11 @@ import {Dropdown} from './dropdown/Dropdown';
 //Расширение интерфейса из входящих данных
 
 interface ArticleProps {
-    props: Article;
+    props: Article,
+    onClick:() => void
 }
 
-export function ArticleCard({props}: ArticleProps) {
+export function ArticleCard({props, onClick}: ArticleProps) {
     //Состояния лайков, комментариев и сохраненок
 
     const [like, setLike] = useState<boolean>(false);
@@ -28,7 +29,7 @@ export function ArticleCard({props}: ArticleProps) {
         fetch(props.imgArticle, {
             method:"GET",
             headers:{
-                "Authorization": `Bearer ${localStorage.getItem("token")}`,
+                "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJhbm9uIiwKICAgICJpc3MiOiAic3VwYWJhc2UtZGVtbyIsCiAgICAiaWF0IjogMTY0MTc2OTIwMCwKICAgICJleHAiOiAxNzk5NTM1NjAwCn0.dc_X5iR_VP_qT0zsiyj_I_OZ2T9FtRU2BBNWN8Bu4GE`,
                 "apikey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyAgCiAgICAicm9sZSI6ICJzZXJ2aWNlX3JvbGUiLAogICAgImlzcyI6ICJzdXBhYmFzZS1kZW1vIiwKICAgICJpYXQiOiAxNjQxNzY5MjAwLAogICAgImV4cCI6IDE3OTk1MzU2MDAKfQ.DaYlNEoUrrEn2Ig7tqibS-PHK5vgusbcbo7X36XVt4Q"
             }
         }).then(response => response.blob())
@@ -48,7 +49,7 @@ export function ArticleCard({props}: ArticleProps) {
     return (
         //Карточка статьи
 
-        <div className={styles.articleWindow}>
+        <div className={styles.articleWindow} onClick={onClick||(() => {})}>
             {/* Блок информации автора */}
             <div className={`columns ${styles.articleWindowAuthor}`}>
                 <div className={`column is-7 `}>

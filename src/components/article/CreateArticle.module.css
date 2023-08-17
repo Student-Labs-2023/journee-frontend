@@ -29,6 +29,7 @@
         "🟥 🟨"
         "🟩 🟨"
     ;
+    justify-content: space-between;
 }
 .inputs > input {
     border: none;

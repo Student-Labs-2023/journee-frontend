@@ -7,6 +7,7 @@ import styles from './FreshPage.module.css';
 import {get as get_articles} from '../../data/Article';
 import { useEffect, useState } from 'react';
 import { SideBar } from '../../components/sidebar/SideBar';
+import ModalWatchArticle from "../../components/article/ModalWatchArticle/ModalWatchArticle"
 
 export function FreshPage() {
     const [Articles, setArticles] = useState([])
@@ -15,6 +16,9 @@ export function FreshPage() {
             setArticles(res)
         })
     }, [])
+
+    const [CurrentArticle, setCurrentArticle] = useState<string|false>(false)
+
     return (
         // Главная страница
         <div key="FreshPage" className={`columns ${styles.main}`}>
@@ -28,11 +32,13 @@ export function FreshPage() {
 
             <div className={`column is-6 ${styles.scroll}`}>
                 {Articles.map((prop) => (
-                    <ArticleCard props={prop}/>
+                    <ArticleCard props={prop} onClick={() => {setCurrentArticle((prop as any).article_url)}}/>
                 ))}
             </div>
             <div className="column is-2"></div>
             <div className="column is-1"></div>
+
+            <ModalWatchArticle current={CurrentArticle} setCurrent={setCurrentArticle} />
         </div>
     );
 }
