@@ -42,6 +42,7 @@ export default function ModalWatchArticle({current, setCurrent}:Props) {
             })
             Promise.all(blocks).then(blocks => {
                 console.log(blocks)
+                editor?.removeBlocks(editor.topLevelBlocks)
                 editor?.insertBlocks(blocks, editor?.getTextCursorPosition().block, "after")
             })
         })
