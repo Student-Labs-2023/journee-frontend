@@ -26,6 +26,9 @@
     display: flex;
     flex-direction: row;
 }
+.authorBlock img {
+    width: 48px;
+}
 
 .detailsBlock {
     padding-left: 10px;

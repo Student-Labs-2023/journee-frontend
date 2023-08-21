@@ -4,7 +4,7 @@ import styles from './SideBar.module.css'
 
 export function SideBar() {
     return (
-        <><h2 className={styles.mediaTitle}>Медиа</h2>
+        <div><h2 className={styles.mediaTitle}>Медиа</h2>
         <nav>
             <NavLink
                 className={({isActive}: { isActive: boolean }) =>
@@ -60,6 +60,6 @@ export function SideBar() {
                 </Link>
             </div>
         </div>
-        </>
+        </div>
     )
 }

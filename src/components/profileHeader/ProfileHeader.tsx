@@ -9,7 +9,7 @@ import logoIcon from '../../img/header/Logoicons_header.svg';
 import searchIcon from '../../img/header/50.svg';
 import buttonIcon from '../../img/header/fi-rs-plus-small.svg';
 import notificationIcon from '../../img/header/notificationicons_header.svg';
-import userIcon from '../../img/profile/Ellipse 6.png';
+import userIcon from '../../img/user_icon.png';
 import userDropdown from '../../img/profile/fi-rs-angle-small-down.svg';
 
 import {Dropdown} from '../header/dropdown/Dropdown';

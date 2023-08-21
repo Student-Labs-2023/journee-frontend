@@ -20,9 +20,9 @@ export function RoutesPage() {
             {/* Подгрузка карточек со статьями */}
 
             <div className="column is-6">
-                {article.map((prop) => (
+                {/* {article.map((prop) => (
                     <ArticleCard props={prop}/>
-                ))}
+                ))} */}
             </div>
             <div className="column is-2"></div>
             <div className="column is-1"></div>

@@ -5,6 +5,7 @@ import styles from './PopularPage.module.css';
 import {get as get_articles} from '../../data/Article';
 import {useEffect, useState} from 'react';
 import {SideBar} from '../../components/sidebar/SideBar';
+import ModalWatchArticle from '../../components/article/ModalWatchArticle/ModalWatchArticle';
 
 export function PopularPage() {
     let height: any;
@@ -16,6 +17,7 @@ export function PopularPage() {
         })
     }, [])
 
+    const [CurrentArticle, setCurrentArticle] = useState<string|false>(false)
 
     return (
         // Главная страница
@@ -28,16 +30,16 @@ export function PopularPage() {
             </div>
             {/* Подгрузка карточек со статьями */}
 
-            <div className="column is-6">
-                <div className={styles.ArticleList}>
+            <div className={`column is-6 ${styles.scroll}`}>
                 {Articles.map((prop) => (
-                    <ArticleCard props={prop}/>
+                    <ArticleCard props={prop} onClick={() => {setCurrentArticle((prop as any).article_url)}}/>
                 ))}
-                </div>
             </div>
 
             <div className="column is-2"></div>
             <div className="column is-1"></div>
+
+            <ModalWatchArticle current={CurrentArticle} setCurrent={setCurrentArticle} />
         </div>
     );
 }
